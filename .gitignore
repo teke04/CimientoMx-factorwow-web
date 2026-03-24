@@ -1,0 +1,25 @@
+# Archivo de configuración con datos sensibles
+.env
+
+# Archivo de usuarios iniciales (contiene contraseñas)
+db/usuarios_iniciales.php
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependencias de Node (si se usan en el futuro)
+node_modules/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Cache
+cache/
+*.cache

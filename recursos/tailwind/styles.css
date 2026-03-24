@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    /* Animación para hacer brillar un elemento */
+    .icon-bright {
+        filter: brightness(1.5);
+    }
+
+    .hover\:icon-bright:hover {
+        filter: brightness(1.5);
+    }
+   
+    /* Animación para flotar desde abajo */
+    .float-up {
+        opacity: 0; 
+        transform: translateY(100px); 
+        transition: all 0.5s ease-out;
+    }
+    .float-up-active {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+
+    /* Animación para entrar girando a la izquierda */
+    .rotate-in-from-left {
+        opacity: 0; 
+        transform: translateX(-100%) rotate(30deg);
+        transition: all 1s ease-out;
+    }
+    .rotate-in-from-left-active {
+        opacity: 1; 
+        transform: translateX(0) rotate(0deg);
+    }
+
+    /* Animación para entrar girando a la derecha */
+    .rotate-in-from-right {
+        opacity: 0; 
+        transform: translateX(100%) rotate(-30deg);
+        transition: all 1s ease-out;
+    }
+    .rotate-in-from-right-active {
+        opacity: 1; 
+        transform: translateX(0) rotate(0deg); 
+    }
+
+    /* Animación para entrar haciendo slide desde la izquierda */
+    .slide-in-from-left {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all 0.5s ease-out;
+    }
+    .slide-in-from-left-active {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+
+    /* Animación para entrar haciendo slide desde la derecha */
+    .slide-in-from-right {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.5s ease-out;
+    }
+    .slide-in-from-right-active {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
