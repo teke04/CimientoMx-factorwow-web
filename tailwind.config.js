@@ -35,6 +35,7 @@ module.exports = {
           },
           fontFamily: {
               inter : ['Inter', 'sans-serif'],
+              montserrat: ['Montserrat', 'sans-serif'],
           },
           fontWeight: {
               bold: '700',

@@ -22,6 +22,13 @@ function inicializarRutas() {
         crearRuta('pagina3', 'Controlador_Web', 'pagina3');
         crearRuta('contacto', 'Controlador_Web', 'contacto');
         
+        // Rutas del navbar
+        crearRuta('diplomado', 'Controlador_Web', 'diplomado');
+        crearRuta('tienda', 'Controlador_Web', 'tienda');
+        crearRuta('acerca-de', 'Controlador_Web', 'acercaDe');
+        crearRuta('webinars', 'Controlador_Web', 'webinars');
+        crearRuta('blog', 'Controlador_Web', 'blog');
+        
         //crearRuta('aviso-de-privacidad', 'Controlador_Web', 'avisoPrivacidad');
     }
 

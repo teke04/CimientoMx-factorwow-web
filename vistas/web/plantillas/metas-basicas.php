@@ -5,7 +5,7 @@
 <!--<meta name="apple-mobile-web-app-capable" content="yes">-->
 <meta http-equiv="Cache-Control" content="max-age=5256000">
 <base href="<?=env('DOMINIO')?>">
-<link rel="icon" href="<?=importAsset('favicon.ico')?>" type="image/x-icon">
+<link rel="icon" href="<?=importAsset('favicon.png')?>">
 <meta name="theme-color" content="<?=env('COLOR_PRIMARIO')?>">
 
 

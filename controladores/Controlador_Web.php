@@ -26,6 +26,31 @@ class Controlador_Web extends Controlador {
         ]);
     }
 
+    public function diplomado() {
+        $this->mostrar('web/diplomado',[
+        ]);
+    }
+
+    public function tienda() {
+        $this->mostrar('web/tienda',[
+        ]);
+    }
+
+    public function acercaDe() {
+        $this->mostrar('web/acerca-de',[
+        ]);
+    }
+
+    public function webinars() {
+        $this->mostrar('web/webinars',[
+        ]);
+    }
+
+    public function blog() {
+        $this->mostrar('web/blog',[
+        ]);
+    }
+
 
 }
 ?>
