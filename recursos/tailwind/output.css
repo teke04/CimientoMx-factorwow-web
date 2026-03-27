@@ -3589,6 +3589,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-\[\#FF3D81\]:hover{
+  --tw-text-opacity: 1;
+  color: rgb(255 61 129 / var(--tw-text-opacity, 1));
+}
+
 .hover\:underline:hover{
   text-decoration-line: underline;
 }
@@ -3607,6 +3612,10 @@ video {
 
 .hover\:opacity-70:hover{
   opacity: 0.7;
+}
+
+.hover\:opacity-100:hover{
+  opacity: 1;
 }
 
 .hover\:shadow-2xl:hover{

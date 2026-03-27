@@ -26,26 +26,26 @@
         <div class="grid grid-cols-2 gap-12">
             <!-- Columna izquierda -->
             <div class="flex flex-col gap-4">
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:opacity-80 transition-opacity">
+                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Diplomado
                 </a>
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:opacity-80 transition-opacity">
+                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Tienda
                 </a>
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:opacity-80 transition-opacity">
+                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Acerca de WOW!
                 </a>
             </div>
 
             <!-- Columna derecha -->
             <div class="flex flex-col gap-4">
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:opacity-80 transition-opacity">
+                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Webinars
                 </a>
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:opacity-80 transition-opacity">
+                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Blog
                 </a>
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:opacity-80 transition-opacity">
+                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Faqs
                 </a>
             </div>
@@ -60,7 +60,7 @@
             <!-- Social Media Icons -->
             <div class="flex gap-4 items-center">
                 <!-- Facebook -->
-                <a href="#" class="hover:opacity-75 transition-opacity flex-shrink-0" title="Facebook">
+                <a href="#" class="hover:opacity-100 transition-opacity flex-shrink-0" title="Facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <g clip-path="url(#clip0_9_1259)">
                             <path d="M12 23.7188C5.53828 23.7188 0.28125 18.4617 0.28125 12C0.28125 5.53828 5.53828 0.28125 12 0.28125C18.4617 0.28125 23.7188 5.53828 23.7188 12C23.7188 18.4617 18.4617 23.7188 12 23.7188Z" fill="#FF3D81"/>
@@ -75,7 +75,7 @@
                 </a>
                 
                 <!-- Instagram -->
-                <a href="#" class="hover:opacity-75 transition-opacity flex-shrink-0" title="Instagram">
+                <a href="#" class="hover:opacity-100 transition-opacity flex-shrink-0" title="Instagram">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <g clip-path="url(#clip0_9_1262)">
                             <path d="M11.9912 22.1653C17.6603 22.1653 22.2559 17.5697 22.2559 11.9006C22.2559 6.23159 17.6603 1.63594 11.9912 1.63594C6.32222 1.63594 1.72656 6.23159 1.72656 11.9006C1.72656 17.5697 6.32222 22.1653 11.9912 22.1653Z" fill="white"/>
@@ -90,7 +90,7 @@
                 </a>
                 
                 <!-- YouTube -->
-                <a href="#" class="hover:opacity-75 transition-opacity flex-shrink-0" title="YouTube">
+                <a href="#" class="hover:opacity-100 transition-opacity flex-shrink-0" title="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <g clip-path="url(#clip0_682_3602)">
                             <path d="M12 23.7188C5.53828 23.7188 0.28125 18.4617 0.28125 12C0.28125 5.53828 5.53828 0.28125 12 0.28125C18.4617 0.28125 23.7188 5.53828 23.7188 12C23.7188 18.4617 18.4617 23.7188 12 23.7188Z" fill="#FF3D81"/>
