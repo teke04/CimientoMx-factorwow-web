@@ -9,10 +9,10 @@
     <?= $this->componente_admin('header');?>
     <?= $this->componente_admin('barra-lateral');?>
   
-    <main class="flex w-full h-full max-w-full max-h-full overflow-clip p-4 lg:p-12">
+    <main class="flex w-full h-full max-w-full max-h-full overflow px-4 lg:px-12">
 
-        <section class="w-full flex flex-col overflow-auto items-center justify-center">
-            <div class="bg-white dark:bg-gray-800 w-full max-w-[800px] p-6 lg:p-8 rounded-xl shadow-lg border-2 border-teven-secundario-1">
+        <section class="w-full flex flex-col overflow-auto items-center justify-center py-[200px] pb-[40px]">
+            <div class="bg-white dark:bg-gray-800 w-full p-6 lg:p-8 rounded-xl shadow-lg border-2 border-teven-secundario-1">
                 <div class="flex flex-row gap-x-4 items-center mb-6">
                     <svg class="size-[40px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path class="dark:stroke-white" d="M12 6V18M12 6L7 11M12 6L17 11" stroke="#50388E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -28,10 +28,10 @@
                 <?php endif; ?>
 
                 <form method="post" action="<?=ruta('admin/productos-crear')?>" enctype="multipart/form-data">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
                         <!-- Nombre -->
-                        <div class="lg:col-span-2">
+                        <div>
                             <label for="nombre" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">Nombre del producto *</label>
                             <input type="text" id="nombre" name="nombre" required
                                    value="<?= htmlspecialchars($datos['nombre'] ?? '') ?>"
@@ -56,6 +56,13 @@
                                    class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100">
                         </div>
 
+                        <!-- Descripción - ocupa 2 filas en desktop -->
+                        <div class="lg:row-span-2 flex flex-col">
+                            <label for="descripcion" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">Descripción</label>
+                            <textarea id="descripcion" name="descripcion"
+                                      class="flex-1 min-h-[120px] w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100 resize-y"><?= htmlspecialchars($datos['descripcion'] ?? '') ?></textarea>
+                        </div>
+
                         <!-- Categoría -->
                         <div>
                             <label for="categoria" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">Categoría *</label>
@@ -77,24 +84,52 @@
                                    class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100">
                         </div>
 
-                        <!-- URL interna (slug) -->
-                        <div>
-                            <label for="url_interna" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">URL interna <span class="font-normal text-gray-400">(slug de la página del producto)</span></label>
-                            <input type="text" id="url_interna" name="url_interna"
-                                   value="<?= htmlspecialchars($datos['url_interna'] ?? '') ?>"
-                                   placeholder="mi-producto"
-                                   pattern="[a-z0-9\-]+" title="Solo letras minúsculas, números y guiones"
-                                   class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100">
-                            <p class="text-xs text-gray-500 dark:text-white/40 mt-1">Solo minúsculas, números y guiones. Ej: <code>curso-de-php</code>. Déjalo vacío si no tendrá página interna.</p>
-                        </div>
-
-                        <!-- Imagen del producto -->
+                        <!-- Imagen - ocupa cols 2-3 -->
                         <div class="lg:col-span-2">
                             <label for="imagen" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">Imagen del producto</label>
                             <input type="file" id="imagen" name="imagen" accept="image/jpeg,image/png,image/webp,image/gif"
                                    class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teven-secundario-2 file:text-white hover:file:bg-teven-complementario cursor-pointer">
                             <p class="text-xs text-gray-500 dark:text-white/40 mt-1">JPG, PNG, WEBP o GIF. Máximo 5 MB.</p>
                         </div>
+
+                        <!-- URL interna -->
+                        <div>
+                            <label for="url_interna" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">URL interna <span class="font-normal text-gray-400">(slug)</span></label>
+                            <input type="text" id="url_interna" name="url_interna"
+                                   value="<?= htmlspecialchars($datos['url_interna'] ?? '') ?>"
+                                   placeholder="mi-producto"
+                                   pattern="[a-z0-9\-]+" title="Solo letras minúsculas, números y guiones"
+                                   class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100">
+                            <p class="text-xs text-gray-500 dark:text-white/40 mt-1">Solo minúsculas, números y guiones. Ej: <code>curso-de-php</code>.</p>
+                        </div>
+
+                    </div>
+
+                            <!-- Nombre -->
+                            <div>
+                                <label for="nombre" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">Nombre del producto *</label>
+                                <input type="text" id="nombre" name="nombre" required
+                                       value="<?= htmlspecialchars($datos['nombre'] ?? '') ?>"
+                                       class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100">
+                            </div>
+
+                            <!-- Descripción -->
+                            <div class="flex-1">
+                                <label for="descripcion" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">Descripción</label>
+                                <textarea id="descripcion" name="descripcion" rows="5"
+                                          class="w-full h-full min-h-[120px] rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100 resize-y"><?= htmlspecialchars($datos['descripcion'] ?? '') ?></textarea>
+                            </div>
+
+                            <!-- URL interna (slug) -->
+                            <div>
+                                <label for="url_interna" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">URL interna <span class="font-normal text-gray-400">(slug)</span></label>
+                                <input type="text" id="url_interna" name="url_interna"
+                                       value="<?= htmlspecialchars($datos['url_interna'] ?? '') ?>"
+                                       placeholder="mi-producto"
+                                       pattern="[a-z0-9\-]+" title="Solo letras minúsculas, números y guiones"
+                                       class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100">
+                                <p class="text-xs text-gray-500 dark:text-white/40 mt-1">Solo minúsculas, números y guiones. Ej: <code>curso-de-php</code>.</p>
+                            </div>
 
                     </div>
 

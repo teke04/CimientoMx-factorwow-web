@@ -86,7 +86,7 @@
                 </a>
                 
                 <!-- Tienda -->
-                <a href="#" class="font-montserrat font-medium text-base text-[#553cc8] uppercase whitespace-nowrap hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('tienda') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase whitespace-nowrap hover:text-[#FF3D81] transition-colors">
                     Tienda
                 </a>
                 
@@ -155,7 +155,7 @@
         </a>
         
         <!-- Tienda -->
-        <a href="#" class="font-montserrat font-medium text-base text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
+        <a href="<?= ruta('tienda') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
             Tienda
         </a>
         

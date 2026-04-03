@@ -17,6 +17,7 @@ class Controlador_Productos extends Controlador_Admin_Base {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nombre          = isset($_POST['nombre'])          ? trim($_POST['nombre'])          : null;
+            $descripcion     = isset($_POST['descripcion'])     ? trim($_POST['descripcion'])     : null;
             $precio          = isset($_POST['precio'])          ? trim($_POST['precio'])          : null;
             $precio_original = isset($_POST['precio_original']) ? trim($_POST['precio_original']) : null;
             $categoria       = isset($_POST['categoria'])       ? trim($_POST['categoria'])       : null;
@@ -28,10 +29,11 @@ class Controlador_Productos extends Controlador_Admin_Base {
             if ($nombre && $precio !== null && $categoria && $url_compra && in_array($categoria, $categorias_validas)) {
                 $imagen_url = $this->subirImagen();
 
-                $sql = "INSERT INTO productos (nombre, precio, precio_original, categoria, url_compra, url_interna, imagen_url)
-                        VALUES (:nombre, :precio, :precio_original, :categoria, :url_compra, :url_interna, :imagen_url)";
+                $sql = "INSERT INTO productos (nombre, descripcion, precio, precio_original, categoria, url_compra, url_interna, imagen_url)
+                        VALUES (:nombre, :descripcion, :precio, :precio_original, :categoria, :url_compra, :url_interna, :imagen_url)";
                 db()->ejecutarConsulta($sql, [
                     ':nombre'          => $nombre,
+                    ':descripcion'     => $descripcion !== '' ? $descripcion : null,
                     ':precio'          => (float)$precio,
                     ':precio_original' => $precio_original !== '' ? (float)$precio_original : null,
                     ':categoria'       => $categoria,
@@ -69,6 +71,7 @@ class Controlador_Productos extends Controlador_Admin_Base {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'])) {
             $nombre          = trim($_POST['nombre']          ?? '');
+            $descripcion     = trim($_POST['descripcion']     ?? '');
             $precio          = trim($_POST['precio']          ?? '');
             $precio_original = trim($_POST['precio_original'] ?? '');
             $categoria       = trim($_POST['categoria']       ?? '');
@@ -90,12 +93,14 @@ class Controlador_Productos extends Controlador_Admin_Base {
                 }
 
                 $sql = "UPDATE productos
-                        SET nombre = :nombre, precio = :precio, precio_original = :precio_original,
-                            categoria = :categoria, url_compra = :url_compra, url_interna = :url_interna,
+                        SET nombre = :nombre, descripcion = :descripcion, precio = :precio,
+                            precio_original = :precio_original, categoria = :categoria,
+                            url_compra = :url_compra, url_interna = :url_interna,
                             imagen_url = :imagen_url, activo = :activo
                         WHERE id = :id";
                 db()->ejecutarConsulta($sql, [
                     ':nombre'          => $nombre,
+                    ':descripcion'     => $descripcion !== '' ? $descripcion : null,
                     ':precio'          => (float)$precio,
                     ':precio_original' => $precio_original !== '' ? (float)$precio_original : null,
                     ':categoria'       => $categoria,
