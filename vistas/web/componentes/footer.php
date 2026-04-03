@@ -39,7 +39,7 @@
 
             <!-- Columna derecha -->
             <div class="flex flex-col gap-4">
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('webinars') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Webinars
                 </a>
                 <a href="<?= ruta('blog') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">

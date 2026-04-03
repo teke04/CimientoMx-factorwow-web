@@ -70,7 +70,24 @@ class Controlador_Web extends Controlador {
     }
 
     public function webinars() {
-        $this->mostrar('web/webinars',[
+        $limit  = 9;
+        $offset = isset($_GET['desde']) ? max(0, (int)$_GET['desde']) : 0;
+
+        $webinars = db()->ejecutarConsulta(
+            "SELECT id, titulo, slug, extracto, link_youtube, creado
+             FROM webinars WHERE activo = 1 ORDER BY creado DESC LIMIT " . (int)$limit . " OFFSET " . (int)$offset,
+            []
+        );
+        $total = db()->ejecutarConsulta(
+            "SELECT COUNT(*) AS total FROM webinars WHERE activo = 1", []
+        );
+        $total = $total[0]['total'] ?? 0;
+
+        $this->mostrar('web/webinars', [
+            'webinars' => $webinars,
+            'total'    => (int)$total,
+            'offset'   => $offset,
+            'limit'    => $limit,
         ]);
     }
 

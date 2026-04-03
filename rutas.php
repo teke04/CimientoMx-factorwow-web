@@ -83,6 +83,12 @@ function inicializarRutas() {
     crearRuta('admin/blog-editar', 'Controlador_Blog', 'editarArticulo');
     crearRuta('admin/blog-borrar', 'Controlador_Blog', 'borrarArticulo');
 
+    // Rutas de webinars (admin)
+    crearRuta('admin/webinars', 'Controlador_Webinars', 'verWebinars');
+    crearRuta('admin/webinars-crear', 'Controlador_Webinars', 'crearWebinar');
+    crearRuta('admin/webinars-editar', 'Controlador_Webinars', 'editarWebinar');
+    crearRuta('admin/webinars-borrar', 'Controlador_Webinars', 'borrarWebinar');
+
     // Rutas de configuraciones
     crearRuta('admin/configuraciones', 'Controlador_Configuraciones', 'verconfiguraciones');
 

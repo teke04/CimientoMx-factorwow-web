@@ -17,7 +17,7 @@
             <!-- Top Row: Webinars, Blog, Social Icons - Aligned to right -->
             <div class="flex gap-[40px] items-center justify-end w-full pr-0">
                 <!-- Webinars -->
-                <a href="#" class="font-montserrat font-medium text-sm text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('webinars') ?>" class="font-montserrat font-medium text-sm text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
                     Webinars
                 </a>
                 
