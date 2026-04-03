@@ -10,8 +10,8 @@ $menuItems = [
     ['id' => 'configuraciones', 'label' => 'Configuraciones', 'ruta' => 'admin/configuraciones']
 ];
 ?>
-<aside id="menu-admin" class="fixed left-0 z-[90] top-[100px] h-full w-[180px] bg-gradient-to-b from-teven-secundario-3 from-[40%] to-[#7148c9] flex flex-col font-inter shadow-2xl shadow-black/40
-    -translate-x-[100%] lg:translate-x-0 duration-300">
+<aside id="menu-admin" class="fixed left-0 z-[90] top-[100px] bottom-0 w-[180px] bg-gradient-to-b from-teven-secundario-3 from-[40%] to-[#7148c9] flex flex-col font-inter shadow-2xl shadow-black/40
+    -translate-x-[100%] lg:translate-x-0 duration-300 overflow-y-auto">
     <div class="h-fit text-white flex flex-col group relative text-base">
         <?php foreach ($menuItems as $item): ?>
             <a class="<?= ($USUARIO['seleccionado'] === $item['id']) 

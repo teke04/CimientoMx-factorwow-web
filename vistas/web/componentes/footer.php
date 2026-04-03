@@ -122,7 +122,7 @@
             <p class="font-montserrat font-normal text-white text-xs leading-relaxed">
                 WOW! Experience by Alejandra Martínez
             </p>
-            <a href="#" class="font-montserrat font-normal text-white text-xs hover:underline">
+            <a href="<?= ruta('aviso-de-privacidad') ?>" class="font-montserrat font-normal text-white text-xs hover:underline">
                 Aviso de privacidad
             </a>
         </div>

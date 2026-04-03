@@ -40,7 +40,6 @@
                             <tr class="bg-teven-secundario-2 text-white font-semibold">
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3">Preview</th>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3">Título</th>
-                                <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden md:table-cell">Slug</th>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden lg:table-cell">Extracto</th>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden md:table-cell">Activo</th>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden lg:table-cell">Fecha</th>
@@ -61,12 +60,6 @@
                                     <?php endif; ?>
                                 </td>
                                 <td class="px-4 py-3 font-medium"><?= htmlspecialchars($webinar['titulo']) ?></td>
-                                <td class="px-4 py-3 hidden md:table-cell text-xs text-gray-500 dark:text-white/50">
-                                    <a href="<?= ruta('webinars/' . htmlspecialchars($webinar['slug'])) ?>" target="_blank"
-                                       class="text-teven-secundario-2 underline">
-                                        /webinars/<?= htmlspecialchars($webinar['slug']) ?>
-                                    </a>
-                                </td>
                                 <td class="px-4 py-3 hidden lg:table-cell text-sm max-w-[200px] truncate">
                                     <?= htmlspecialchars($webinar['extracto'] ?? '—') ?>
                                 </td>

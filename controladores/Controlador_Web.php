@@ -33,6 +33,10 @@ class Controlador_Web extends Controlador {
         $this->mostrar('web/faq', []);
     }
 
+    public function avisoPrivacidad() {
+        $this->mostrar('web/aviso-de-privacidad', []);
+    }
+
     public function diplomado() {
         $this->mostrar('web/diplomado',[
         ]);

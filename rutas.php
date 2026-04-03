@@ -30,7 +30,7 @@ function inicializarRutas() {
         crearRuta('webinars', 'Controlador_Web', 'webinars');
         crearRuta('blog', 'Controlador_Web', 'blog');
         
-        //crearRuta('aviso-de-privacidad', 'Controlador_Web', 'avisoPrivacidad');
+        crearRuta('aviso-de-privacidad', 'Controlador_Web', 'avisoPrivacidad');
     }
 
     // RUTAS COMUNES (disponibles en ambos modos)

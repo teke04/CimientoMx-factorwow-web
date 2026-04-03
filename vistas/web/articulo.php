@@ -42,7 +42,7 @@ $descripcion = !empty($articulo['extracto']) ? htmlspecialchars($articulo['extra
         <?php $this->componente('navbar'); ?>
 
         <!-- ── Hero ─────────────────────────────────────────────── -->
-        <section class="relative w-full h-[600px] mt-[120px] overflow-hidden bg-[#553cc8]">
+        <section class="relative w-full h-[600px] overflow-hidden bg-[#553cc8]">
 
             <!-- Back button -->
             <a href="<?= ruta('blog') ?>"
@@ -79,7 +79,13 @@ $descripcion = !empty($articulo['extracto']) ? htmlspecialchars($articulo['extra
 
         <!-- ── Date + Share bar ───────────────────────────────────── -->
         <div class="w-full flex justify-center -mt-[40px] relative z-30">
-            <div class="w-full max-w-[812px]">
+            <div class="w-full max-w-[812px] relative">
+                <!-- Decoración derecha de la barra -->
+                <img
+                    src="<?= importAsset('imagenes/articulo/Halitoso.svg') ?>"
+                    alt=""
+                    class="absolute translate-x-[-4px] z-[-10] left-full bottom-0 h-[80px] w-auto pointer-events-none select-none hidden xl:block"
+                >
                 <div class="flex items-center justify-between px-[40px] h-[80px]"
                      style="background: linear-gradient(90deg, #FF3D81 0%, #553CC8 100%);">
                     <span class="font-montserrat font-normal text-[18px] text-white leading-[1.8] whitespace-nowrap">
@@ -99,8 +105,23 @@ $descripcion = !empty($articulo['extracto']) ? htmlspecialchars($articulo['extra
         </div>
 
         <!-- ── Article content ───────────────────────────────────── -->
-        <section class="w-full bg-white py-12">
-            <div class="w-full max-w-[812px] mx-auto px-4 flex flex-col gap-[20px]">
+        <section class="w-full bg-white py-12 relative overflow-hidden">
+
+            <!-- Decoración superior derecha -->
+            <img
+                src="<?= importAsset('imagenes/articulo/deco-arriba.svg') ?>"
+                alt=""
+                class="absolute top-0 right-0 w-[40%] max-w-[500px] h-auto pointer-events-none select-none"
+            >
+
+            <!-- Decoración inferior izquierda -->
+            <img
+                src="<?= importAsset('imagenes/articulo/deco-abajo.svg') ?>"
+                alt=""
+                class="absolute bottom-0 left-0 w-[40%] max-w-[500px] h-auto pointer-events-none select-none"
+            >
+
+            <div class="w-full max-w-[812px] mx-auto px-4 flex flex-col gap-[20px] relative z-10">
 
                 <!-- Subtitle (extracto) -->
                 <?php if (!empty($articulo['extracto'])): ?>

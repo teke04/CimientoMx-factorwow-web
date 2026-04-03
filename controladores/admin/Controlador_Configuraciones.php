@@ -101,11 +101,12 @@ class Controlador_Configuraciones extends Controlador_Admin_Base {
             }
         }
         
-        // Acceder al PDO directamente desde la propiedad de Database
-        $reflection = new ReflectionClass($this->db);
+        // Acceder al PDO directamente desde la instancia global de Db
+        $dbInstance = db();
+        $reflection = new ReflectionClass($dbInstance);
         $pdoProperty = $reflection->getProperty('pdo');
         $pdoProperty->setAccessible(true);
-        $pdo = $pdoProperty->getValue($this->db);
+        $pdo = $pdoProperty->getValue($dbInstance);
         
         try {
             $sql = "UPDATE configuraciones SET valor = :valor WHERE clave = :clave";
