@@ -3,6 +3,7 @@ $menuItems = [
     ['id' => 'resultados', 'label' => 'Resultados', 'ruta' => 'admin/resultados'],
     ['id' => 'landings', 'label' => 'Landings', 'ruta' => 'admin/landings'],
     ['id' => 'leads', 'label' => 'Leads', 'ruta' => 'admin/leads'],
+    ['id' => 'videos', 'label' => 'Videos', 'ruta' => 'admin/videos'],
     ['id' => 'configuraciones', 'label' => 'Configuraciones', 'ruta' => 'admin/configuraciones']
 ];
 ?>

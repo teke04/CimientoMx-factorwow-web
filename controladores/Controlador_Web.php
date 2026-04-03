@@ -7,7 +7,10 @@ class Controlador_Web extends Controlador {
 
     
     public function home() {
-        $this->mostrar('web/home',[
+        $sql = "SELECT titulo, youtube_id FROM videos ORDER BY creado ASC LIMIT 3";
+        $videos = db()->ejecutarConsulta($sql, []);
+        $this->mostrar('web/home', [
+            'videos' => $videos,
         ]);
     }
     

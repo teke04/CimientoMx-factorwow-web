@@ -498,33 +498,175 @@
 
         <!-- Sección testimonios en video -->
         <section class="w-screen min-h-screen flex items-center justify-center py-16 overflow-hidden" style="background: linear-gradient(90deg, #FF8A8A 0%, #FF3D81 100%);">
-            <div class="w-full max-w-7xl px-8 flex flex-col items-center gap-16">
-                <!-- Título (opcional) -->
+            <div class="w-full max-w-7xl px-8 flex flex-col items-center gap-10">
+                <!-- Título -->
                 <h2 class="text-center font-montserrat font-bold text-[40px] text-white">
                     Testimonios en video
                 </h2>
 
-                <!-- Contenedor de tarjetas -->
-                <div class="flex gap-5 justify-center items-center overflow-x-auto pb-4">
-                    <?php for($i = 1; $i <= 3; $i++): ?>
-                    <!-- Tarjeta <?=$i?> -->
-                    <div class="relative flex-shrink-0 w-[292px] h-[530px] group">
-                        <img src="https://via.placeholder.com/292x530" alt="Testimonio <?=$i?>" class="w-full h-full object-cover rounded-[20px]">
-                        <!-- Gradiente oscuro -->
-                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 rounded-[20px]"></div>
-                        <!-- Botón Play -->
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="40" cy="40" r="40" fill="black" fill-opacity="0.3"/>
-                                <path d="M48.494 35.9679L38.954 28.9679C38.2089 28.4223 37.3272 28.0937 36.4068 28.0185C35.4863 27.9434 34.563 28.1247 33.7393 28.5422C32.9156 28.9598 32.2236 29.5973 31.7401 30.3842C31.2565 31.171 31.0004 32.0763 31 32.9999V46.9999C31.0002 47.9238 31.2563 48.8296 31.7401 49.6168C32.2238 50.404 32.9162 51.0417 33.7404 51.4593C34.5646 51.8768 35.4884 52.0578 36.4092 51.9822C37.3301 51.9066 38.212 51.5773 38.957 51.0309L48.497 44.0309C49.1303 43.5665 49.6452 42.9594 50.0002 42.2589C50.3552 41.5584 50.5401 40.7842 50.5401 39.9989C50.5401 39.2136 50.3552 38.4393 50.0002 37.7388C49.6452 37.0383 49.1303 36.4313 48.497 35.9669L48.494 35.9679ZM47.31 42.4179L37.77 49.4179C37.323 49.7445 36.7944 49.9411 36.2426 49.9858C35.6908 50.0306 35.1374 49.9218 34.6436 49.6715C34.1498 49.4212 33.7349 49.0391 33.4448 48.5676C33.1547 48.0961 33.0008 47.5535 33 46.9999V32.9999C32.9945 32.4452 33.1455 31.9002 33.4358 31.4276C33.7261 30.9549 34.1438 30.5738 34.641 30.3279C35.0639 30.1128 35.5315 30.0004 36.006 29.9999C36.6419 30.0023 37.2602 30.2088 37.77 30.5889L47.31 37.5889C47.6895 37.8676 47.9981 38.2317 48.2107 38.6517C48.4234 39.0718 48.5343 39.536 48.5343 40.0069C48.5343 40.4777 48.4234 40.9419 48.2107 41.362C47.9981 41.7821 47.6895 42.1462 47.31 42.4249V42.4179Z" fill="white"/>
-                            </svg>
+                <!-- Carrusel / grid de tarjetas -->
+                <div class="relative w-full">
 
+                    <!-- Track: scroll-snap en mobile, flex normal en desktop -->
+                    <div id="testimonios-track"
+                         class="flex gap-5 pb-4
+                                overflow-x-auto snap-x snap-mandatory
+                                lg:overflow-x-visible lg:justify-center lg:items-center">
+                        <?php
+                        $videosTestimonios = isset($videos) ? $videos : [];
+                        for($i = 0; $i < 3; $i++):
+                            $video = isset($videosTestimonios[$i]) ? $videosTestimonios[$i] : null;
+                        ?>
+                        <!-- Tarjeta <?=$i+1?> -->
+                        <div id="testimonio-slide-<?=$i?>"
+                             class="snap-center flex-shrink-0 w-[292px] h-[530px] relative group <?= $video ? 'cursor-pointer' : '' ?>"
+                             <?= $video ? 'onclick="abrirVideoModal(\'' . htmlspecialchars($video['youtube_id'], ENT_QUOTES) . '\')"' : '' ?>>
+                            <?php if($video): ?>
+                            <!-- maxresdefault = 1280×720 (16:9 sin barras negras); fallback a mqdefault = 320×180 (16:9) -->
+                            <img src="https://img.youtube.com/vi/<?= htmlspecialchars($video['youtube_id']) ?>/maxresdefault.jpg"
+                                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/<?= htmlspecialchars($video['youtube_id']) ?>/mqdefault.jpg'"
+                                 alt="<?= htmlspecialchars($video['titulo']) ?>"
+                                 class="w-full h-full object-cover rounded-[20px]">
+                            <?php else: ?>
+                            <img src="https://via.placeholder.com/292x530" alt="Testimonio <?=$i+1?>" class="w-full h-full object-cover rounded-[20px]">
+                            <?php endif; ?>
+                            <!-- Gradiente oscuro -->
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 rounded-[20px]"></div>
+                            <!-- Botón Play -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="40" cy="40" r="40" fill="black" fill-opacity="0.3"/>
+                                    <path d="M48.494 35.9679L38.954 28.9679C38.2089 28.4223 37.3272 28.0937 36.4068 28.0185C35.4863 27.9434 34.563 28.1247 33.7393 28.5422C32.9156 28.9598 32.2236 29.5973 31.7401 30.3842C31.2565 31.171 31.0004 32.0763 31 32.9999V46.9999C31.0002 47.9238 31.2563 48.8296 31.7401 49.6168C32.2238 50.404 32.9162 51.0417 33.7404 51.4593C34.5646 51.8768 35.4884 52.0578 36.4092 51.9822C37.3301 51.9066 38.212 51.5773 38.957 51.0309L48.497 44.0309C49.1303 43.5665 49.6452 42.9594 50.0002 42.2589C50.3552 41.5584 50.5401 40.7842 50.5401 39.9989C50.5401 39.2136 50.3552 38.4393 50.0002 37.7388C49.6452 37.0383 49.1303 36.4313 48.497 35.9669L48.494 35.9679ZM47.31 42.4179L37.77 49.4179C37.323 49.7445 36.7944 49.9411 36.2426 49.9858C35.6908 50.0306 35.1374 49.9218 34.6436 49.6715C34.1498 49.4212 33.7349 49.0391 33.4448 48.5676C33.1547 48.0961 33.0008 47.5535 33 46.9999V32.9999C32.9945 32.4452 33.1455 31.9002 33.4358 31.4276C33.7261 30.9549 34.1438 30.5738 34.641 30.3279C35.0639 30.1128 35.5315 30.0004 36.006 29.9999C36.6419 30.0023 37.2602 30.2088 37.77 30.5889L47.31 37.5889C47.6895 37.8676 47.9981 38.2317 48.2107 38.6517C48.4234 39.0718 48.5343 39.536 48.5343 40.0069C48.5343 40.4777 48.4234 40.9419 48.2107 41.362C47.9981 41.7821 47.6895 42.1462 47.31 42.4249V42.4179Z" fill="white"/>
+                                </svg>
+                            </div>
                         </div>
+                        <?php endfor; ?>
                     </div>
+
+                </div>
+
+                <!-- Dots — solo mobile -->
+                <div class="flex justify-center gap-3 lg:hidden">
+                    <?php for($d = 0; $d < 3; $d++): ?>
+                    <button onclick="irATestimonio(<?=$d?>)"
+                            id="dot-testimonio-<?=$d?>"
+                            class="rounded-full transition-all duration-300 <?= $d === 0 ? 'w-4 h-4 bg-white' : 'w-3 h-3 bg-white/40' ?>"
+                            aria-label="Testimonio <?=$d+1?>">
+                    </button>
                     <?php endfor; ?>
                 </div>
             </div>
         </section>
+
+        <!-- Modal de video -->
+        <div id="video-modal"
+             class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden"
+             onclick="if(event.target===this) cerrarVideoModal()">
+            <div class="relative w-full max-w-5xl">
+                <!-- Botón cerrar -->
+                <button onclick="cerrarVideoModal()"
+                        class="absolute -top-10 right-0 text-white text-4xl leading-none font-bold hover:text-gray-300 transition"
+                        aria-label="Cerrar video">&times;</button>
+                <!-- Contenedor 16:9 con iframe escalado para eliminar barras negras del player -->
+                <div class="relative w-full overflow-hidden rounded-2xl" style="padding-bottom: 56.25%;">
+                    <iframe id="video-modal-iframe"
+                            class="absolute w-full h-full"
+                            style="top: 0; left: 0;"
+                            src=""
+                            frameborder="0"
+                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            /* Ocultar barra de scroll del carrusel */
+            #testimonios-track { -ms-overflow-style: none; scrollbar-width: none; }
+            #testimonios-track::-webkit-scrollbar { display: none; }
+        </style>
+
+        <script>
+        // ── Carrusel de testimonios (mobile) ─────────────────────────────
+        let testimonioActual = 0;
+        const TOTAL_TESTIMONIOS = 3;
+
+        function initCarruselTestimonios() {
+            if (window.innerWidth >= 1024) return;
+            const track = document.getElementById('testimonios-track');
+            // Añadir padding para centrar la primera y última tarjeta
+            const pad = Math.max(0, (track.offsetWidth - 292) / 2);
+            track.style.paddingLeft  = pad + 'px';
+            track.style.paddingRight = pad + 'px';
+            irATestimonio(testimonioActual, false);
+        }
+
+        function irATestimonio(index, animar = true) {
+            if (window.innerWidth >= 1024) return;
+            testimonioActual = Math.max(0, Math.min(index, TOTAL_TESTIMONIOS - 1));
+            const slide = document.getElementById('testimonio-slide-' + testimonioActual);
+            if (slide) {
+                slide.scrollIntoView({ behavior: animar ? 'smooth' : 'instant', block: 'nearest', inline: 'center' });
+            }
+            actualizarDotsTestimonios(testimonioActual);
+        }
+
+        function testimonioAnterior() {
+            irATestimonio((testimonioActual - 1 + TOTAL_TESTIMONIOS) % TOTAL_TESTIMONIOS);
+        }
+
+        function testimonioSiguiente() {
+            irATestimonio((testimonioActual + 1) % TOTAL_TESTIMONIOS);
+        }
+
+        function actualizarDotsTestimonios(index) {
+            for (let i = 0; i < TOTAL_TESTIMONIOS; i++) {
+                const dot = document.getElementById('dot-testimonio-' + i);
+                if (!dot) continue;
+                dot.className = i === index
+                    ? 'rounded-full transition-all duration-300 w-4 h-4 bg-white'
+                    : 'rounded-full transition-all duration-300 w-3 h-3 bg-white/40';
+            }
+        }
+
+        // Actualizar dot activo al hacer swipe manual
+        document.getElementById('testimonios-track').addEventListener('scroll', function () {
+            if (window.innerWidth >= 1024) return;
+            const trackCenter = this.scrollLeft + this.offsetWidth / 2;
+            let closest = 0, minDist = Infinity;
+            for (let i = 0; i < TOTAL_TESTIMONIOS; i++) {
+                const slide = document.getElementById('testimonio-slide-' + i);
+                if (!slide) continue;
+                const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+                const dist = Math.abs(trackCenter - slideCenter);
+                if (dist < minDist) { minDist = dist; closest = i; }
+            }
+            if (closest !== testimonioActual) {
+                testimonioActual = closest;
+                actualizarDotsTestimonios(closest);
+            }
+        }, { passive: true });
+
+        window.addEventListener('load', initCarruselTestimonios);
+        window.addEventListener('resize', initCarruselTestimonios);
+
+        // ── Modal de video ────────────────────────────────────────────────
+        function abrirVideoModal(youtubeId) {
+            document.getElementById('video-modal-iframe').src =
+                'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1&rel=0&modestbranding=1';
+            document.getElementById('video-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function cerrarVideoModal() {
+            document.getElementById('video-modal-iframe').src = '';
+            document.getElementById('video-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') cerrarVideoModal();
+        });
+        </script>
 
         <!-- Nueva sección -->
         <section class="w-screen min-h-screen flex items-center justify-center" style="background: #E6F0F0;">

@@ -65,6 +65,11 @@ function inicializarRutas() {
     crearRuta('admin/landings-editar', 'Controlador_Landings', 'editarLanding');
     crearRuta('admin/landings-crear', 'Controlador_Landings', 'crearLanding');
     
+    // Rutas de videos
+    crearRuta('admin/videos', 'Controlador_Videos', 'verVideos');
+    crearRuta('admin/videos-crear', 'Controlador_Videos', 'crearVideo');
+    crearRuta('admin/videos-borrar', 'Controlador_Videos', 'borrarVideo');
+
     // Rutas de configuraciones
     crearRuta('admin/configuraciones', 'Controlador_Configuraciones', 'verconfiguraciones');
 
