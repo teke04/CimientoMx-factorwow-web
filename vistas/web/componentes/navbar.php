@@ -22,7 +22,7 @@
                 </a>
                 
                 <!-- Blog -->
-                <a href="#" class="font-montserrat font-medium text-sm text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('blog') ?>" class="font-montserrat font-medium text-sm text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
                     Blog
                 </a>
                 
@@ -170,7 +170,7 @@
         </a>
         
         <!-- Blog -->
-        <a href="#" class="font-montserrat font-medium text-sm text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
+        <a href="<?= ruta('blog') ?>" class="font-montserrat font-medium text-sm text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
             Blog
         </a>
     </nav>

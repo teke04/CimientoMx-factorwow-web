@@ -41,7 +41,8 @@ class Controlador_Productos extends Controlador_Admin_Base {
                     ':url_interna'     => $url_interna !== '' ? $url_interna : null,
                     ':imagen_url'      => $imagen_url,
                 ]);
-                $this->verProductos();
+                header('Location: ' . ruta('admin/productos'));
+                exit;
             } else {
                 $this->mostrar('admin/productos/crear-productos', [
                     'usuario' => $_SESSION['usuario'],
@@ -110,7 +111,8 @@ class Controlador_Productos extends Controlador_Admin_Base {
                     ':activo'          => $activo,
                     ':id'              => $id,
                 ]);
-                $this->verProductos();
+                header('Location: ' . ruta('admin/productos'));
+                exit;
             } else {
                 $this->mostrar('admin/productos/editar-productos', [
                     'usuario'  => $_SESSION['usuario'],
@@ -136,7 +138,8 @@ class Controlador_Productos extends Controlador_Admin_Base {
             }
             db()->ejecutarConsulta("DELETE FROM productos WHERE id = :id", [':id' => $id]);
         }
-        $this->verProductos();
+        header('Location: ' . ruta('admin/productos'));
+        exit;
     }
 
     // ── Helpers de imagen ──────────────────────────────────────────────────────

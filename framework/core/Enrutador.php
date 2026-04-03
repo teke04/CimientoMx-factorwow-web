@@ -48,6 +48,14 @@ class Enrutador {
         }
     }
 
+    private function cargarRutasBlog() {
+        $sql = "SELECT slug FROM articulos_blog WHERE activo = 1 AND slug IS NOT NULL AND slug != ''";
+        $rows = db()->ejecutarConsulta($sql, []);
+        foreach ($rows as $row) {
+            $this->rutas['blog/' . $row['slug']] = ['Controlador_Web', 'verArticulo'];
+        }
+    }
+
     public static function getInstance() {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -66,6 +74,7 @@ class Enrutador {
             self::getInstance()->cargarRutasLandings();
         }
         self::getInstance()->cargarRutasProductos();
+        self::getInstance()->cargarRutasBlog();
         self::iniciarEnrutamiento();
     }
 
@@ -90,7 +99,7 @@ class Enrutador {
 
             $controller = new $nombreControlador();
 
-            if ($nombreMetodo === 'keyword' || $nombreMetodo === 'verProducto') {
+            if ($nombreMetodo === 'keyword' || $nombreMetodo === 'verProducto' || $nombreMetodo === 'verArticulo') {
                 $controller->$nombreMetodo($requestUri);
             } else {
                 $controller->$nombreMetodo();

@@ -77,6 +77,12 @@ function inicializarRutas() {
     crearRuta('admin/productos-editar', 'Controlador_Productos', 'editarProducto');
     crearRuta('admin/productos-borrar', 'Controlador_Productos', 'borrarProducto');
 
+    // Rutas de blog (admin)
+    crearRuta('admin/blog', 'Controlador_Blog', 'verArticulos');
+    crearRuta('admin/blog-crear', 'Controlador_Blog', 'crearArticulo');
+    crearRuta('admin/blog-editar', 'Controlador_Blog', 'editarArticulo');
+    crearRuta('admin/blog-borrar', 'Controlador_Blog', 'borrarArticulo');
+
     // Rutas de configuraciones
     crearRuta('admin/configuraciones', 'Controlador_Configuraciones', 'verconfiguraciones');
 

@@ -42,7 +42,7 @@
                 <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Webinars
                 </a>
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('blog') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Blog
                 </a>
                 <a href="<?= ruta('faq') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
