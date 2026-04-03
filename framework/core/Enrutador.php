@@ -40,6 +40,14 @@ class Enrutador {
         }
     }
 
+    private function cargarRutasProductos() {
+        $sql = "SELECT url_interna FROM productos WHERE activo = 1 AND url_interna IS NOT NULL AND url_interna != ''";
+        $rows = db()->ejecutarConsulta($sql, []);
+        foreach ($rows as $row) {
+            $this->rutas['tienda/' . $row['url_interna']] = ['Controlador_Web', 'verProducto'];
+        }
+    }
+
     public static function getInstance() {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -57,6 +65,7 @@ class Enrutador {
         if (env('MODO_PROYECTO') === 'landing') {
             self::getInstance()->cargarRutasLandings();
         }
+        self::getInstance()->cargarRutasProductos();
         self::iniciarEnrutamiento();
     }
 
@@ -81,7 +90,7 @@ class Enrutador {
 
             $controller = new $nombreControlador();
 
-            if ($nombreMetodo === 'keyword') {
+            if ($nombreMetodo === 'keyword' || $nombreMetodo === 'verProducto') {
                 $controller->$nombreMetodo($requestUri);
             } else {
                 $controller->$nombreMetodo();

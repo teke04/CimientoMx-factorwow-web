@@ -70,6 +70,12 @@ function inicializarRutas() {
     crearRuta('admin/videos-crear', 'Controlador_Videos', 'crearVideo');
     crearRuta('admin/videos-borrar', 'Controlador_Videos', 'borrarVideo');
 
+    // Rutas de productos
+    crearRuta('admin/productos', 'Controlador_Productos', 'verProductos');
+    crearRuta('admin/productos-crear', 'Controlador_Productos', 'crearProducto');
+    crearRuta('admin/productos-editar', 'Controlador_Productos', 'editarProducto');
+    crearRuta('admin/productos-borrar', 'Controlador_Productos', 'borrarProducto');
+
     // Rutas de configuraciones
     crearRuta('admin/configuraciones', 'Controlador_Configuraciones', 'verconfiguraciones');
 
