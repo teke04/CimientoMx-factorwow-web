@@ -906,6 +906,10 @@ video {
   top: -1.25rem;
 }
 
+.top-\[6\%\]{
+  top: 6%;
+}
+
 .-z-10{
   z-index: -10;
 }
@@ -1417,6 +1421,10 @@ video {
   height: 40px;
 }
 
+.h-\[85\%\]{
+  height: 85%;
+}
+
 .max-h-0{
   max-height: 0px;
 }
@@ -1596,6 +1604,18 @@ video {
 
 .w-\[40px\]{
   width: 40px;
+}
+
+.w-\[55\%\]{
+  width: 55%;
+}
+
+.w-\[65\%\]{
+  width: 65%;
+}
+
+.w-\[min\(735px\2c 80vw\)\]{
+  width: min(735px,80vw);
 }
 
 .min-w-0{
@@ -2871,6 +2891,11 @@ video {
      object-position: top;
 }
 
+.object-bottom{
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
 .p-1{
   padding: 0.25rem;
 }
@@ -3099,6 +3124,11 @@ video {
 .py-\[20px\]{
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.py-\[10px\]{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .pb-0{
@@ -3432,6 +3462,10 @@ video {
   font-size: clamp(30px,4vw,48px);
 }
 
+.text-\[clamp\(28px\2c 3vw\2c 48px\)\]{
+  font-size: clamp(28px,3vw,48px);
+}
+
 .font-black{
   font-weight: 900;
 }
@@ -3681,6 +3715,11 @@ video {
   color: rgb(255 255 255 / 0.8);
 }
 
+.text-\[\#00e6ff\]{
+  --tw-text-opacity: 1;
+  color: rgb(0 230 255 / var(--tw-text-opacity, 1));
+}
+
 .underline{
   text-decoration-line: underline;
 }
@@ -3852,6 +3891,11 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.brightness-0{
+  --tw-brightness: brightness(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .drop-shadow{
   --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -3864,6 +3908,11 @@ video {
 
 .drop-shadow-lg{
   --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.invert{
+  --tw-invert: invert(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -4240,6 +4289,11 @@ video {
   background-color: rgb(0 100 255 / 0.1);
 }
 
+.hover\:bg-white:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:py-8:hover{
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -4275,6 +4329,11 @@ video {
 }
 
 .hover\:text-\[\#553CC8\]:hover{
+  --tw-text-opacity: 1;
+  color: rgb(85 60 200 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-\[\#553cc8\]:hover{
   --tw-text-opacity: 1;
   color: rgb(85 60 200 / var(--tw-text-opacity, 1));
 }
@@ -4827,6 +4886,10 @@ video {
 
   .xl\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .xl\:gap-\[40px\]{
+    gap: 40px;
   }
 
   .xl\:px-0{
