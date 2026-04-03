@@ -24,7 +24,7 @@ class Controlador_Productos extends Controlador_Admin_Base {
             $url_compra      = isset($_POST['url_compra'])      ? trim($_POST['url_compra'])      : null;
             $url_interna     = isset($_POST['url_interna'])     ? trim($_POST['url_interna'])     : null;
 
-            $categorias_validas = ['presencial', 'online', 'descargable'];
+            $categorias_validas = ['presencial', 'online', 'descargable', 'otros'];
 
             if ($nombre && $precio !== null && $categoria && $url_compra && in_array($categoria, $categorias_validas)) {
                 $imagen_url = $this->subirImagen();
@@ -79,7 +79,7 @@ class Controlador_Productos extends Controlador_Admin_Base {
             $url_interna     = trim($_POST['url_interna']     ?? '');
             $activo          = isset($_POST['activo']) ? 1 : 0;
 
-            $categorias_validas = ['presencial', 'online', 'descargable'];
+            $categorias_validas = ['presencial', 'online', 'descargable', 'otros'];
 
             if ($nombre && $precio !== '' && $categoria && $url_compra && in_array($categoria, $categorias_validas)) {
                 // Si se sube una imagen nueva, usarla; si no, conservar la existente

@@ -669,10 +669,10 @@
         </script>
 
         <!-- Nueva sección -->
-        <section class="w-screen min-h-screen flex items-center justify-center" style="background: #E6F0F0;">
+        <section class="w-screen min-h-screen flex items-center justify-center pb-[400px] relative" style="background: #E6F0F0;">
             <div class="w-full max-w-7xl flex flex-col gap-12 pt-16">
                 <!-- Título -->
-                <h2 class="font-montserrat font-bold text-[30px] text-[#553cc8] uppercase leading-[1.2] px-8">
+                <h2 class="font-montserrat font-bold text-[24px] lg:text-[30px] text-[#553cc8] uppercase leading-[1.2] px-8">
                     Preguntas frecuentes
                 </h2>
 
@@ -723,7 +723,7 @@
                     </div>
 
                     <!-- Div decorativo (imagen) debajo -->
-                    <div class="w-full max-w-[300px]">
+                    <div class="w-full max-w-[300px] absolute left-0 bottom-0">
                         <img src="<?=importAsset('imagenes/home/deco-faq.png')?>" alt="Decoración FAQ" class="w-full h-auto">
                     </div>
                 </div>

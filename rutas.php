@@ -21,6 +21,7 @@ function inicializarRutas() {
         crearRuta('pagina2', 'Controlador_Web', 'pagina2');
         crearRuta('pagina3', 'Controlador_Web', 'pagina3');
         crearRuta('contacto', 'Controlador_Web', 'contacto');
+        crearRuta('faq', 'Controlador_Web', 'faq');
         
         // Rutas del navbar
         crearRuta('diplomado', 'Controlador_Web', 'diplomado');

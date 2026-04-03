@@ -38,7 +38,7 @@ $descripcion = 'Explora nuestra tienda: cursos presenciales, cursos online y des
             <div class="w-full max-w-7xl mx-auto px-8 flex flex-col gap-10">
 
                 <!-- Filtros -->
-                <div class="flex flex-wrap gap-3 justify-center">
+                <div class="flex flex-wrap gap-3 justify-center" id="filtros-tienda">
                     <?php
                     $categorias = [
                         ''             => 'Todos',
@@ -46,35 +46,42 @@ $descripcion = 'Explora nuestra tienda: cursos presenciales, cursos online y des
                         'online'       => 'Cursos online',
                         'descargable'  => 'Descargables',
                     ];
-                    $cat_activa = isset($_GET['categoria']) ? $_GET['categoria'] : '';
+                    // 'otros' no tiene botón propio — solo aparece en "Todos"
+                    $categoriasConocidas = ['presencial', 'online', 'descargable'];
                     foreach ($categorias as $val => $label):
                     ?>
-                    <a href="<?= ruta('tienda') . ($val !== '' ? '?categoria=' . urlencode($val) : '') ?>"
-                       class="px-5 py-2 rounded-full font-montserrat font-semibold text-[14px] border-2 transition-all duration-200
-                              <?= $cat_activa === $val
-                                  ? 'bg-[#553CC8] border-[#553CC8] text-white'
-                                  : 'bg-white border-[#553CC8] text-[#553CC8] hover:bg-[#553CC8] hover:text-white' ?>">
+                    <button data-filter="<?= $val ?>"
+                            class="filtro-btn px-5 py-2 rounded-full font-montserrat font-semibold text-[14px] border-2 transition-all duration-200
+                                   <?= $val === '' ? 'activo bg-[#553CC8] border-[#553CC8] text-white' : 'bg-white border-[#553CC8] text-[#553CC8] hover:bg-[#553CC8] hover:text-white' ?>">
                         <?= $label ?>
-                    </a>
+                    </button>
                     <?php endforeach; ?>
                 </div>
 
                 <?php
-                // Filtrar por categoría en PHP
-                $productosFiltrados = array_filter($productos ?? [], function($p) use ($cat_activa) {
-                    return $cat_activa === '' || $p['categoria'] === $cat_activa;
+                // Ordenar: primero categorías conocidas, luego 'otros'
+                $todosProductos = $productos ?? [];
+                usort($todosProductos, function($a, $b) use ($categoriasConocidas) {
+                    $aOtros = !in_array($a['categoria'], $categoriasConocidas) ? 1 : 0;
+                    $bOtros = !in_array($b['categoria'], $categoriasConocidas) ? 1 : 0;
+                    return $aOtros - $bOtros;
                 });
                 ?>
 
-                <?php if (empty($productosFiltrados)): ?>
-                    <p class="text-center font-montserrat text-[#7D82AA] text-[18px] py-16">
-                        No hay productos disponibles en esta categoría.
-                    </p>
-                <?php else: ?>
-                <!-- Grid de productos -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
-                    <?php foreach ($productosFiltrados as $producto): ?>
-                    <div class="group flex flex-col gap-5 w-full max-w-[292px] rounded-[20px]">
+                <!-- Mensaje vacío (oculto por JS cuando hay resultados) -->
+                <p id="tienda-vacia" class="hidden text-center font-montserrat text-[#7D82AA] text-[18px] py-16">
+                    No hay productos disponibles en esta categoría.
+                </p>
+
+                <!-- Grid de productos: todos renderizados, JS muestra/oculta -->
+                <div id="grid-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
+                    <?php foreach ($todosProductos as $producto):
+                        $catCard = in_array($producto['categoria'], $categoriasConocidas)
+                            ? $producto['categoria']
+                            : 'otros';
+                    ?>
+                    <div class="producto-card group flex flex-col gap-5 w-full max-w-[292px] rounded-[20px]"
+                         data-categoria="<?= htmlspecialchars($catCard) ?>">
                         <!-- Imagen -->
                         <?php $url_interna = $producto['url_interna'] ?? null; ?>
                         <div class="w-full aspect-square rounded-[20px] overflow-hidden bg-gray-100">
@@ -136,10 +143,50 @@ $descripcion = 'Explora nuestra tienda: cursos presenciales, cursos online y des
                     </div>
                     <?php endforeach; ?>
                 </div>
-                <?php endif; ?>
 
             </div>
         </section>
+
+        <script>
+        (function () {
+            const btns   = document.querySelectorAll('.filtro-btn');
+            const cards  = document.querySelectorAll('.producto-card');
+            const vacio  = document.getElementById('tienda-vacia');
+            const grid   = document.getElementById('grid-productos');
+
+            function filtrar(filtro) {
+                let visibles = 0;
+                cards.forEach(function (card) {
+                    const cat = card.dataset.categoria;
+                    // 'otros' solo se muestra en "Todos" (filtro vacío)
+                    const mostrar = filtro === '' ? true : cat === filtro;
+                    if (mostrar) {
+                        card.style.display = '';
+                        visibles++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                vacio.classList.toggle('hidden', visibles > 0);
+                grid.classList.toggle('hidden', visibles === 0);
+            }
+
+            btns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    btns.forEach(function (b) {
+                        b.classList.remove('activo', 'bg-[#553CC8]', 'border-[#553CC8]', 'text-white');
+                        b.classList.add('bg-white', 'text-[#553CC8]');
+                    });
+                    btn.classList.add('activo', 'bg-[#553CC8]', 'border-[#553CC8]', 'text-white');
+                    btn.classList.remove('bg-white', 'text-[#553CC8]');
+                    filtrar(btn.dataset.filter);
+                });
+            });
+
+            // Estado inicial: mostrar todos
+            filtrar('');
+        })();
+        </script>
 
         <?php $this->componente('flotante-whatsapp'); ?>
         <?php $this->componente('footer'); ?>

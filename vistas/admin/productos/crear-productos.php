@@ -72,6 +72,7 @@
                                 <option value="presencial" <?= (($datos['categoria'] ?? '') === 'presencial') ? 'selected' : '' ?>>Curso presencial</option>
                                 <option value="online"     <?= (($datos['categoria'] ?? '') === 'online')     ? 'selected' : '' ?>>Curso online</option>
                                 <option value="descargable"<?= (($datos['categoria'] ?? '') === 'descargable')? 'selected' : '' ?>>Descargable</option>
+                                <option value="otros"      <?= (($datos['categoria'] ?? '') === 'otros')      ? 'selected' : '' ?>>Otros</option>
                             </select>
                         </div>
 

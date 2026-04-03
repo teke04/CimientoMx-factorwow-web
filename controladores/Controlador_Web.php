@@ -29,6 +29,10 @@ class Controlador_Web extends Controlador {
         ]);
     }
 
+    public function faq() {
+        $this->mostrar('web/faq', []);
+    }
+
     public function diplomado() {
         $this->mostrar('web/diplomado',[
         ]);

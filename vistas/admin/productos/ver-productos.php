@@ -55,6 +55,7 @@
                                 'presencial'   => 'Presencial',
                                 'online'       => 'Online',
                                 'descargable'  => 'Descargable',
+                                'otros'        => 'Otros',
                             ];
                             foreach ($productos as $producto):
                             ?>
