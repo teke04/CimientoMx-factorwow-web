@@ -13,6 +13,9 @@ class Controlador_Leads extends Controlador_Admin_Base {
                 prospectos.nombre,
                 prospectos.telefono,
                 prospectos.correo,
+                prospectos.pais,
+                prospectos.ciudad,
+                prospectos.mensaje,
                 intereses.interes,
                 servicios.servicio
             FROM 

@@ -54,12 +54,14 @@
         <div class="content">
             <p>Hola, aquí están los detalles del lead que llenó el formulario:</p>
             <div class="info">
-                <p><span>Keyword:</span>  <?= isset($keyword)  ? $keyword  : "N/A" ?></p>
-                <p><span>Nombre:</span>   <?= isset($nombre)   ? $nombre   : "N/A" ?></p>
-                <p><span>Telefono:</span> <?= isset($telefono) ? $telefono : "N/A" ?></p>
-                <p><span>Correo:</span>   <?= isset($correo)   ? $correo   : "N/A" ?></p>
-                <p><span>interes:</span>  <?= isset($interes)  ? $interes  : "N/A" ?></p>
-                <p><span>Estado:</span>   <?= isset($estado)   ? $estado   : "N/A" ?></p>
+                <p><span>Keyword:</span>  <?= isset($keyword)  ? htmlspecialchars($keyword)  : 'N/A' ?></p>
+                <p><span>Nombre:</span>   <?= isset($nombre)   ? htmlspecialchars($nombre)   : 'N/A' ?></p>
+                <p><span>Teléfono:</span> <?= isset($telefono) ? htmlspecialchars($telefono) : 'N/A' ?></p>
+                <p><span>Correo:</span>   <?= isset($correo)   ? htmlspecialchars($correo)   : 'N/A' ?></p>
+                <p><span>País:</span>     <?= isset($pais)     ? htmlspecialchars($pais)     : 'N/A' ?></p>
+                <p><span>Ciudad:</span>   <?= isset($ciudad)   ? htmlspecialchars($ciudad)   : 'N/A' ?></p>
+                <p><span>Interés:</span>  <?= isset($interes)  ? htmlspecialchars($interes)  : 'N/A' ?></p>
+                <p><span>Mensaje:</span>  <?= isset($mensaje)  ? nl2br(htmlspecialchars($mensaje)) : 'N/A' ?></p>
             </div>
         </div>
         <div class="footer">

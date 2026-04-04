@@ -11,7 +11,7 @@
 <body class="w-screen overflow-x-clip">
     <?= configuracion('tag_manager_body') ?>
 
-    <section class="relative w-screen min-h-screen bg-gradient-to-r from-[#FF3D81] to-[#553CC8] overflow-hidden flex flex-col items-center justify-center px-6 pt-16 pb-[320px] md:pt-24 md:pb-24">
+    <section class="relative -mt-[20px] w-screen min-h-screen bg-gradient-to-r from-[#FF3D81] to-[#553CC8] overflow-hidden flex flex-col items-center justify-center px-6 pt-16 pb-[320px] md:pt-24 md:pb-24">
 
         <!-- Decoraciones de fondo -->
         <img src="<?=importAsset('imagenes/gracias/deco-1.svg')?>" alt=""

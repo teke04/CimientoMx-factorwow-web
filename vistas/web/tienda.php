@@ -25,7 +25,7 @@ $descripcion = 'Explora nuestra tienda: cursos presenciales, cursos online y des
         <?php $this->componente('navbar'); ?>
 
         <!-- Hero banner -->
-        <section class="w-screen pt-[80px]" style="background: linear-gradient(90deg, #553CC8 0%, #7D82AA 100%);">
+        <section class="w-screen -mt-[40px]" style="background: linear-gradient(90deg, #553CC8 0%, #7D82AA 100%);">
             <div class="w-full max-w-7xl mx-auto px-8 py-16 flex items-center justify-center">
                 <h1 class="font-montserrat font-extrabold text-[48px] text-white tracking-widest uppercase">
                     Tienda

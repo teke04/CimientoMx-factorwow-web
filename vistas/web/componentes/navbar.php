@@ -14,7 +14,7 @@ $_diplomados_nav = db()->ejecutarConsulta(
         <!-- Logo (left) -->
         <div class="flex-shrink-0">
             <a href="<?= ruta('') ?>" class="inline-block hover:text-[#FF3D81] transition-colors">
-                <img src="<?=importAsset('logo.svg')?>" alt="WOW EXPERIENCE" class="h-16">
+                <img src="<?=importAsset('logo.svg')?>" alt="WOW EXPERIENCE" class="h-16 max-w-[180px]">
             </a>
         </div>
         
@@ -114,7 +114,7 @@ $_diplomados_nav = db()->ejecutarConsulta(
                 </a>
                 
                 <!-- Acerca de WOW! -->
-                <a href="<?= ruta('acerca-de') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase whitespace-nowrap hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase whitespace-nowrap hover:text-[#FF3D81] transition-colors">
                     Acerca de wow!
                 </a>
                 

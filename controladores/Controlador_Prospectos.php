@@ -6,6 +6,9 @@ class Controlador_Prospectos extends Controlador {
             $nombre      = isset($_POST['nombre'])      ? trim($_POST['nombre'])      : null;
             $email       = isset($_POST['email'])       ? trim($_POST['email'])       : null;
             $telefono    = isset($_POST['tel'])         ? trim($_POST['tel'])         : null;
+            $pais        = isset($_POST['pais'])        ? trim($_POST['pais'])        : null;
+            $ciudad      = isset($_POST['ciudad'])      ? trim($_POST['ciudad'])      : null;
+            $mensaje     = isset($_POST['mensaje'])     ? trim($_POST['mensaje'])     : null;
             
             // Validar interes_id: debe existir en POST, no estar vacío y ser numérico
             $interes_id  = (isset($_POST['interes']) && $_POST['interes'] !== '' && is_numeric($_POST['interes'])) 
@@ -30,12 +33,15 @@ class Controlador_Prospectos extends Controlador {
                 $landing_id = ($landing_id === '' || $landing_id === null) ? 0 : $landing_id;
 
                 // Insertar prospecto con campos opcionales
-                $sql = "INSERT INTO prospectos (nombre, telefono, correo, interes_id, servicio_id, landing_id) 
-                        VALUES (:nombre, :telefono, :correo, :interes_id, :servicio_id, :landing_id)";
+                $sql = "INSERT INTO prospectos (nombre, telefono, correo, pais, ciudad, mensaje, interes_id, servicio_id, landing_id) 
+                        VALUES (:nombre, :telefono, :correo, :pais, :ciudad, :mensaje, :interes_id, :servicio_id, :landing_id)";
                 $params = [
                     ':nombre'      => $nombre,
                     ':telefono'    => $telefono,
                     ':correo'      => $email,
+                    ':pais'        => $pais        !== '' ? $pais        : null,
+                    ':ciudad'      => $ciudad      !== '' ? $ciudad      : null,
+                    ':mensaje'     => $mensaje     !== '' ? $mensaje     : null,
                     ':interes_id'  => $interes_id,
                     ':servicio_id' => $servicio_id,
                     ':landing_id'  => $landing_id
@@ -74,6 +80,10 @@ class Controlador_Prospectos extends Controlador {
                     'correo'   => $email,
                     'telefono' => $telefono
                 ];
+                
+                if ($pais)    $datosEmail['pais']    = $pais;
+                if ($ciudad)  $datosEmail['ciudad']  = $ciudad;
+                if ($mensaje) $datosEmail['mensaje'] = $mensaje;
                 
                 // Agregar campos opcionales solo si tienen valor
                 if ($interes_texto) {

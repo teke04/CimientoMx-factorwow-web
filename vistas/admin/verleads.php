@@ -51,10 +51,12 @@
                         <thead>
                             <tr class="bg-teven-secundario-2 text-white font-semibold">
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden md:table-cell">Creado</th>
-                                <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3">Keyword</th>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3">Nombre</th>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden lg:table-cell">Teléfono</th>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden xl:table-cell">Correo</th>
+                                <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden xl:table-cell">País</th>
+                                <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden xl:table-cell">Ciudad</th>
+                                <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden 2xl:table-cell">Mensaje</th>
                                 <?php if ($hayIntereses): ?>
                                 <th class="px-4 py-3 text-left border-b-2 border-teven-secundario-3 hidden lg:table-cell">Interés</th>
                                 <?php endif; ?>
@@ -68,10 +70,12 @@
                             <?php foreach ($leads as $lead): ?>
                             <tr class="text-teven-secundario-3 dark:text-white/70 odd:bg-teven-primario/5 dark:odd:bg-white/5 even:bg-teven-secundario-1/10 dark:even:bg-white/10 hover:bg-teven-complementario/10 transition-colors">
                                 <td class="px-4 py-3 hidden md:table-cell"><?php echo htmlspecialchars($lead['creada']); ?></td>
-                                <td class="px-4 py-3 font-medium"><?php echo $lead['keyword'] ? htmlspecialchars($lead['keyword']) : 'Sin landing'; ?></td>
                                 <td class="px-4 py-3"><?php echo htmlspecialchars($lead['nombre']); ?></td>
                                 <td class="px-4 py-3 hidden lg:table-cell"><?php echo htmlspecialchars($lead['telefono']); ?></td>
                                 <td class="px-4 py-3 hidden xl:table-cell truncate max-w-xs"><?php echo htmlspecialchars($lead['correo']); ?></td>
+                                <td class="px-4 py-3 hidden xl:table-cell"><?php echo htmlspecialchars($lead['pais'] ?? '-'); ?></td>
+                                <td class="px-4 py-3 hidden xl:table-cell"><?php echo htmlspecialchars($lead['ciudad'] ?? '-'); ?></td>
+                                <td class="px-4 py-3 hidden 2xl:table-cell max-w-sm truncate" title="<?php echo htmlspecialchars($lead['mensaje'] ?? ''); ?>"><?php echo htmlspecialchars($lead['mensaje'] ?? '-'); ?></td>
                                 <?php if ($hayIntereses): ?>
                                 <td class="px-4 py-3 hidden lg:table-cell"><?php echo $lead['interes'] ? htmlspecialchars($lead['interes']) : '-'; ?></td>
                                 <?php endif; ?>

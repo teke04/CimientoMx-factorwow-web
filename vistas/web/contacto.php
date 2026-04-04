@@ -26,7 +26,7 @@ $descripcion = 'Ponte en contacto con nosotros. Especialistas del Factor WOW! en
         <?php $this->componente('flotante-whatsapp'); ?>
 
         <!-- ── HERO: fondo morado ──────────────────────────────── -->
-        <section class="relative w-screen overflow-hidden bg-gradient-to-r from-[#8160ae] to-[#553CC8] pt-28 pb-20 md:pt-32 md:pb-24">
+        <section class="relative -mt-[40px] w-screen overflow-hidden bg-gradient-to-r from-[#8160ae] to-[#553CC8] pt-28 pb-20 md:pt-32 md:pb-24">
 
             <!-- Decoración (curvas/anillos) -->
             <img src="<?= importAsset('imagenes/contacto/decoracion.svg') ?>" alt=""

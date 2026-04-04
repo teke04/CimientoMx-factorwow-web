@@ -29,7 +29,7 @@ $slug        = $diplomado['slug'] ?? '';
         <?php $this->componente('flotante-whatsapp'); ?>
 
         <!-- ── HERO ──────────────────────────────────────────── -->
-        <section class="relative w-screen overflow-hidden bg-gradient-to-r from-[#8160ae] to-[#553CC8] pt-28 pb-16 md:pt-32 md:pb-20">
+        <section class="relative -mt-[40px] w-screen overflow-hidden bg-gradient-to-r from-[#8160ae] to-[#553CC8] pt-28 pb-16 md:pt-32 md:pb-20">
 
             <!-- Decoración top-right -->
             <img src="<?= importAsset('imagenes/diplomado/decoracion-img-hero.svg') ?>" alt=""
