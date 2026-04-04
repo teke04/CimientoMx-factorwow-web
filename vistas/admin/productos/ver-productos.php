@@ -25,12 +25,34 @@
                             Productos de la tienda
                         </h1>
                     </div>
-                    <a href="<?=ruta('admin/productos-crear')?>"
-                       class="w-fit rounded-lg bg-teven-secundario-2 py-3 px-2 lg:px-8 text-white font-bold text-xs lg:text-base
-                              hover:bg-teven-complementario duration-200 whitespace-nowrap">
-                        Agregar nuevo producto
-                    </a>
+
+                    <div class="flex flex-wrap gap-2 items-center">
+                        <a href="<?=ruta('admin/productos-crear')?>"
+                           class="w-fit rounded-lg bg-teven-secundario-2 py-3 px-2 lg:px-8 text-white font-bold text-xs lg:text-base
+                                  hover:bg-teven-complementario duration-200 whitespace-nowrap">
+                            Agregar nuevo producto
+                        </a>
+                        <a href="<?=ruta('admin/productos-sincronizar')?>"
+                           class="w-fit rounded-lg border-2 border-teven-secundario-2 py-3 px-2 lg:px-8 text-teven-secundario-2 dark:text-white dark:border-white font-bold text-xs lg:text-base
+                                  hover:bg-teven-complementario hover:border-teven-complementario hover:text-white duration-200 whitespace-nowrap">
+                            &#8635; Sincronizar precios desde Stripe
+                        </a>
+                    </div>
                 </div>
+
+                <?php if (isset($_GET['sincronizados'])): ?>
+                <div class="mt-4 px-4 py-3 rounded-lg <?= (int)$_GET['errores'] > 0 ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200' : 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200' ?>">
+                    <?= (int)$_GET['sincronizados'] ?> producto(s) sincronizados desde Stripe.
+                    <?php if ((int)$_GET['errores'] > 0): ?>
+                        <?= (int)$_GET['errores'] ?> error(es) &mdash; revisa los logs.
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
+                <?php if (isset($_GET['error']) && $_GET['error'] === 'stripe_key'): ?>
+                <div class="mt-4 px-4 py-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-200">
+                    STRIPE_SECRET_KEY no está configurada en el archivo .env.
+                </div>
+                <?php endif; ?>
 
                 <div class="mt-8 lg:mt-16 w-full overflow-x-auto">
                     <?php if (empty($productos)): ?>

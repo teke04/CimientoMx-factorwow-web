@@ -23,14 +23,15 @@ class Controlador_Productos extends Controlador_Admin_Base {
             $categoria       = isset($_POST['categoria'])       ? trim($_POST['categoria'])       : null;
             $url_compra      = isset($_POST['url_compra'])      ? trim($_POST['url_compra'])      : null;
             $url_interna     = isset($_POST['url_interna'])     ? trim($_POST['url_interna'])     : null;
+            $stripe_price_id = isset($_POST['stripe_price_id']) ? trim($_POST['stripe_price_id']) : null;
 
             $categorias_validas = ['presencial', 'online', 'descargable', 'otros'];
 
             if ($nombre && $precio !== null && $categoria && $url_compra && in_array($categoria, $categorias_validas)) {
                 $imagen_url = $this->subirImagen();
 
-                $sql = "INSERT INTO productos (nombre, descripcion, precio, precio_original, categoria, url_compra, url_interna, imagen_url)
-                        VALUES (:nombre, :descripcion, :precio, :precio_original, :categoria, :url_compra, :url_interna, :imagen_url)";
+                $sql = "INSERT INTO productos (nombre, descripcion, precio, precio_original, categoria, url_compra, stripe_price_id, url_interna, imagen_url)
+                        VALUES (:nombre, :descripcion, :precio, :precio_original, :categoria, :url_compra, :stripe_price_id, :url_interna, :imagen_url)";
                 db()->ejecutarConsulta($sql, [
                     ':nombre'          => $nombre,
                     ':descripcion'     => $descripcion !== '' ? $descripcion : null,
@@ -38,6 +39,7 @@ class Controlador_Productos extends Controlador_Admin_Base {
                     ':precio_original' => $precio_original !== '' ? (float)$precio_original : null,
                     ':categoria'       => $categoria,
                     ':url_compra'      => $url_compra,
+                    ':stripe_price_id' => $stripe_price_id !== '' ? $stripe_price_id : null,
                     ':url_interna'     => $url_interna !== '' ? $url_interna : null,
                     ':imagen_url'      => $imagen_url,
                 ]);
@@ -78,6 +80,7 @@ class Controlador_Productos extends Controlador_Admin_Base {
             $categoria       = trim($_POST['categoria']       ?? '');
             $url_compra      = trim($_POST['url_compra']      ?? '');
             $url_interna     = trim($_POST['url_interna']     ?? '');
+            $stripe_price_id = trim($_POST['stripe_price_id'] ?? '');
             $activo          = isset($_POST['activo']) ? 1 : 0;
 
             $categorias_validas = ['presencial', 'online', 'descargable', 'otros'];
@@ -96,7 +99,8 @@ class Controlador_Productos extends Controlador_Admin_Base {
                 $sql = "UPDATE productos
                         SET nombre = :nombre, descripcion = :descripcion, precio = :precio,
                             precio_original = :precio_original, categoria = :categoria,
-                            url_compra = :url_compra, url_interna = :url_interna,
+                            url_compra = :url_compra, stripe_price_id = :stripe_price_id,
+                            url_interna = :url_interna,
                             imagen_url = :imagen_url, activo = :activo
                         WHERE id = :id";
                 db()->ejecutarConsulta($sql, [
@@ -106,6 +110,7 @@ class Controlador_Productos extends Controlador_Admin_Base {
                     ':precio_original' => $precio_original !== '' ? (float)$precio_original : null,
                     ':categoria'       => $categoria,
                     ':url_compra'      => $url_compra,
+                    ':stripe_price_id' => $stripe_price_id !== '' ? $stripe_price_id : null,
                     ':url_interna'     => $url_interna !== '' ? $url_interna : null,
                     ':imagen_url'      => $imagen_url,
                     ':activo'          => $activo,
@@ -178,6 +183,55 @@ class Controlador_Productos extends Controlador_Admin_Base {
         if (!move_uploaded_file($file['tmp_name'], $destino)) return null;
 
         return 'recursos/imagenes/productos/' . $nombreArchivo;
+    }
+
+    /**
+     * Sincroniza precio y precio_original desde Stripe para todos los productos
+     * que tengan stripe_price_id configurado.
+     */
+    public function sincronizarPrecios() {
+        $stripe_key = env('STRIPE_SECRET_KEY', '');
+        if (empty($stripe_key)) {
+            header('Location: ' . ruta('admin/productos') . '?error=stripe_key');
+            exit;
+        }
+
+        \Stripe\Stripe::setApiKey($stripe_key);
+
+        $productos = db()->ejecutarConsulta(
+            "SELECT id, stripe_price_id FROM productos WHERE stripe_price_id IS NOT NULL AND stripe_price_id != '' AND activo = 1",
+            []
+        );
+
+        $actualizados = 0;
+        $errores      = 0;
+
+        foreach ($productos as $producto) {
+            try {
+                $price = \Stripe\Price::retrieve($producto['stripe_price_id']);
+
+                $precio          = $price->unit_amount / 100;
+                $precio_original = $price->compare_at_unit_amount
+                    ? $price->compare_at_unit_amount / 100
+                    : null;
+
+                db()->ejecutarConsulta(
+                    "UPDATE productos SET precio = :precio, precio_original = :precio_original WHERE id = :id",
+                    [
+                        ':precio'          => $precio,
+                        ':precio_original' => $precio_original,
+                        ':id'              => $producto['id'],
+                    ]
+                );
+                $actualizados++;
+            } catch (\Stripe\Exception\ApiErrorException $e) {
+                logger()->error('Stripe sync precio: ' . $e->getMessage(), ['producto_id' => $producto['id']]);
+                $errores++;
+            }
+        }
+
+        header('Location: ' . ruta('admin/productos') . '?sincronizados=' . $actualizados . '&errores=' . $errores);
+        exit;
     }
 
     /**

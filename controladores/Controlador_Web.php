@@ -37,13 +37,38 @@ class Controlador_Web extends Controlador {
         $this->mostrar('web/aviso-de-privacidad', []);
     }
 
-    public function diplomado() {
-        $this->mostrar('web/diplomado',[
+    public function listaDiplomados() {
+        $rows = db()->ejecutarConsulta(
+            "SELECT slug FROM diplomados WHERE activo = 1 ORDER BY creado DESC LIMIT 1",
+            []
+        );
+        if (!empty($rows)) {
+            header('Location: ' . ruta('diplomado/' . $rows[0]['slug']));
+        } else {
+            http_response_code(404);
+            $this->show404();
+        }
+        exit;
+    }
+
+    public function verDiplomado($slug) {
+        if (strpos($slug, '/') !== false) {
+            $slug = substr(strrchr($slug, '/'), 1);
+        }
+        $sql = "SELECT * FROM diplomados WHERE slug = :slug AND activo = 1 LIMIT 1";
+        $rows = db()->ejecutarConsulta($sql, [':slug' => $slug]);
+        if (empty($rows)) {
+            http_response_code(404);
+            $this->show404();
+            return;
+        }
+        $this->mostrar('web/diplomado', [
+            'diplomado' => $rows[0],
         ]);
     }
 
     public function tienda() {
-        $sql = "SELECT id, nombre, precio, precio_original, categoria, url_compra, url_interna, imagen_url
+        $sql = "SELECT id, nombre, precio, precio_original, categoria, url_compra, stripe_price_id, url_interna, imagen_url
                 FROM productos WHERE activo = 1 ORDER BY creado DESC";
         $productos = db()->ejecutarConsulta($sql, []);
         $this->mostrar('web/tienda', [

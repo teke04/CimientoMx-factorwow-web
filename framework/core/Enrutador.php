@@ -56,6 +56,14 @@ class Enrutador {
         }
     }
 
+    private function cargarRutasDiplomados() {
+        $sql = "SELECT slug FROM diplomados WHERE activo = 1 AND slug IS NOT NULL AND slug != ''";
+        $rows = db()->ejecutarConsulta($sql, []);
+        foreach ($rows as $row) {
+            $this->rutas['diplomado/' . $row['slug']] = ['Controlador_Web', 'verDiplomado'];
+        }
+    }
+
     public static function getInstance() {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -75,6 +83,7 @@ class Enrutador {
         }
         self::getInstance()->cargarRutasProductos();
         self::getInstance()->cargarRutasBlog();
+        self::getInstance()->cargarRutasDiplomados();
         self::iniciarEnrutamiento();
     }
 
@@ -91,6 +100,8 @@ class Enrutador {
         if (env('ENVIRONMENT') === 'development') {
             $requestUri = str_replace(str_replace('http://localhost/', '', env('DOMINIO')), '', $_SERVER['REQUEST_URI']);
         }
+        // Separar el path del query string antes de comparar con las rutas
+        $requestUri = parse_url($requestUri, PHP_URL_PATH) ?? $requestUri;
         $requestUri = trim($requestUri, '/');
 
         if (array_key_exists($requestUri, $enrutador->rutas)) {
@@ -99,7 +110,7 @@ class Enrutador {
 
             $controller = new $nombreControlador();
 
-            if ($nombreMetodo === 'keyword' || $nombreMetodo === 'verProducto' || $nombreMetodo === 'verArticulo') {
+            if ($nombreMetodo === 'keyword' || $nombreMetodo === 'verProducto' || $nombreMetodo === 'verArticulo' || $nombreMetodo === 'verDiplomado') {
                 $controller->$nombreMetodo($requestUri);
             } else {
                 $controller->$nombreMetodo();

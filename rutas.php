@@ -24,7 +24,7 @@ function inicializarRutas() {
         crearRuta('faq', 'Controlador_Web', 'faq');
         
         // Rutas del navbar
-        crearRuta('diplomado', 'Controlador_Web', 'diplomado');
+        crearRuta('diplomado', 'Controlador_Web', 'listaDiplomados');
         crearRuta('tienda', 'Controlador_Web', 'tienda');
         crearRuta('acerca-de', 'Controlador_Web', 'acercaDe');
         crearRuta('webinars', 'Controlador_Web', 'webinars');
@@ -75,7 +75,8 @@ function inicializarRutas() {
     crearRuta('admin/productos', 'Controlador_Productos', 'verProductos');
     crearRuta('admin/productos-crear', 'Controlador_Productos', 'crearProducto');
     crearRuta('admin/productos-editar', 'Controlador_Productos', 'editarProducto');
-    crearRuta('admin/productos-borrar', 'Controlador_Productos', 'borrarProducto');
+    crearRuta('admin/productos-borrar',       'Controlador_Productos', 'borrarProducto');
+    crearRuta('admin/productos-sincronizar', 'Controlador_Productos', 'sincronizarPrecios');
 
     // Rutas de blog (admin)
     crearRuta('admin/blog', 'Controlador_Blog', 'verArticulos');
@@ -89,8 +90,25 @@ function inicializarRutas() {
     crearRuta('admin/webinars-editar', 'Controlador_Webinars', 'editarWebinar');
     crearRuta('admin/webinars-borrar', 'Controlador_Webinars', 'borrarWebinar');
 
+    // Rutas de diplomados (admin)
+    crearRuta('admin/diplomados', 'Controlador_Diplomados', 'verDiplomados');
+    crearRuta('admin/diplomados-crear', 'Controlador_Diplomados', 'crearDiplomado');
+    crearRuta('admin/diplomados-editar', 'Controlador_Diplomados', 'editarDiplomado');
+    crearRuta('admin/diplomados-borrar', 'Controlador_Diplomados', 'borrarDiplomado');
+
     // Rutas de configuraciones
     crearRuta('admin/configuraciones', 'Controlador_Configuraciones', 'verconfiguraciones');
+
+    // Rutas de pedidos (admin)
+    crearRuta('admin/pedidos', 'Controlador_Pedidos', 'verPedidos');
+
+    // ── Stripe Checkout (público) ────────────────────────────────────────────
+    crearRuta('checkout', 'Controlador_Checkout', 'iniciar');
+    crearRuta('checkout/exito', 'Controlador_Checkout', 'exito');
+    crearRuta('checkout/cancelado', 'Controlador_Checkout', 'cancelado');
+
+    // ── Stripe Webhook (público, sin sesión) ─────────────────────────────────
+    crearRuta('stripe/webhook', 'Controlador_Webhook', 'recibir');
 
 }
 

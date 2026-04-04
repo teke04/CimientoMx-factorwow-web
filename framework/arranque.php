@@ -51,6 +51,11 @@ class Framework {
     
     // Carga archivos auxiliares (rutas y funciones)
     private function cargarArchivos() {
+        // Stripe PHP SDK (instalado via Composer)
+        $stripe_autoload = __DIR__ . '/../vendor/autoload.php';
+        if (file_exists($stripe_autoload)) {
+            require_once $stripe_autoload;
+        }
         require_once __DIR__ . '/../rutas.php';
         require_once __DIR__ . '/funciones.php';
         return $this;

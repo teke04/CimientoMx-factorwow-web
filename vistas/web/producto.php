@@ -125,12 +125,24 @@ $imagen_og   = $producto['imagen_url'] ? url($producto['imagen_url']) : '';
                                     <?php endif; ?>
                                 </div>
 
+                                <?php if (!empty($producto['stripe_price_id'])): ?>
+                                <form method="post" action="<?= ruta('checkout') ?>">
+                                    <input type="hidden" name="producto_id" value="<?= $producto['id'] ?>">
+                                    <button type="submit"
+                                            class="w-full flex items-center justify-center px-10 py-2.5 rounded-full
+                                                   bg-[#FF3D81] font-montserrat font-semibold text-[18px] text-white text-center
+                                                   hover:opacity-90 transition-opacity cursor-pointer">
+                                        Comprar
+                                    </button>
+                                </form>
+                                <?php else: ?>
                                 <a href="<?= htmlspecialchars($producto['url_compra']) ?>"
                                    target="_blank" rel="noopener noreferrer"
                                    class="w-full flex items-center justify-center px-10 py-2.5 rounded-full
                                           bg-[#FF3D81] font-montserrat font-semibold text-[18px] text-white text-center">
                                     Comprar
                                 </a>
+                                <?php endif; ?>
 
                                 <p class="font-montserrat font-normal text-[10px] text-[#7D82AA] leading-normal">
                                     *Te recuerdo que al ser un producto digital no hay reembolsos.

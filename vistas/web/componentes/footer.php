@@ -26,13 +26,13 @@
         <div class="grid grid-cols-2 gap-12">
             <!-- Columna izquierda -->
             <div class="flex flex-col gap-4">
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('diplomado') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Diplomado
                 </a>
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('tienda') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Tienda
                 </a>
-                <a href="#" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('acerca-de') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Acerca de WOW!
                 </a>
             </div>

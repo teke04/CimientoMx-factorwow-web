@@ -11,7 +11,7 @@
     <div class="bg-white rounded-md shadow-2xl shadow-black/50 flex flex-row max-w-[800px]">
 
         <div class="w-1/2 h-full flex items-center justify-center p-8">
-            <img src="<?=importAsset('imgs/logo.png')?>" alt="Logo" class="object-fit">
+            <img src="<?=importAsset('logo.svg')?>" alt="Logo" class="object-fit min-w-[300px]">
         </div>
 
         <div class="w-1/2 h-full flex flex-col p-8">

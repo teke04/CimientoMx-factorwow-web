@@ -117,6 +117,19 @@
                             <p class="text-xs text-gray-500 dark:text-white/40 mt-1">Solo minúsculas, números y guiones. Ej: <code>curso-de-php</code>.</p>
                         </div>
 
+                        <!-- Stripe Price ID -->
+                        <div>
+                            <label for="stripe_price_id" class="block text-teven-secundario-3 dark:text-white/70 font-bold mb-2">
+                                Stripe Price ID
+                                <span class="font-normal text-gray-400">(para cobro nativo)</span>
+                            </label>
+                            <input type="text" id="stripe_price_id" name="stripe_price_id"
+                                   value="<?= htmlspecialchars($producto['stripe_price_id'] ?? '') ?>"
+                                   placeholder="price_xxxxxxxxxxxx"
+                                   class="w-full rounded-lg px-4 py-2 text-sm bg-gray-300 outline-none focus:ring-2 focus:ring-teven-secundario-2 dark:focus:ring-teven-complementario duration-100">
+                            <p class="text-xs text-gray-500 dark:text-white/40 mt-1">Copia el Price ID desde el <a href="https://dashboard.stripe.com/products" target="_blank" class="underline">Dashboard de Stripe</a>. Si se rellena, el botón "Comprar" usará Stripe Checkout.</p>
+                        </div>
+
                         <!-- Activo - ocupa cols 2-3 -->
                         <div class="lg:col-span-2 flex items-center gap-3">
                             <input type="checkbox" id="activo" name="activo" value="1"
