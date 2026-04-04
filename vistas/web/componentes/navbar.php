@@ -114,7 +114,7 @@ $_diplomados_nav = db()->ejecutarConsulta(
                 </a>
                 
                 <!-- Acerca de WOW! -->
-                <a href="<?= ruta('') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase whitespace-nowrap hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('acerca-de-wow') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase whitespace-nowrap hover:text-[#FF3D81] transition-colors">
                     Acerca de wow!
                 </a>
                 
@@ -198,7 +198,7 @@ $_diplomados_nav = db()->ejecutarConsulta(
         </a>
         
         <!-- Acerca de WOW! -->
-        <a href="<?= ruta('acerca-de') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
+        <a href="<?= ruta('acerca-de-wow') ?>" class="font-montserrat font-medium text-base text-[#553cc8] uppercase hover:text-[#FF3D81] transition-colors">
             Acerca de wow!
         </a>
         

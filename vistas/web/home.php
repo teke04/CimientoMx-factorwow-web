@@ -51,8 +51,8 @@
                     </p>
                     
                     <!-- CTA Button -->
-                    <a href="<?=ruta('diplomado')?>" class="inline-block bg-[#ff3d81] text-white font-montserrat font-bold px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:opacity-90 transition-all text-sm sm:text-base mb-4 sm:mb-6 md:mb-8">
-                        Texto
+                    <a href="<?=ruta('acerca-de-wow')?>" class="inline-block bg-[#ff3d81] text-white font-montserrat font-bold px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:opacity-90 transition-all text-sm sm:text-base mb-4 sm:mb-6 md:mb-8">
+                        ¡Más de wow!
                     </a>
                     
                     <!-- Puntos de navegación -->

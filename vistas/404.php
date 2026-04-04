@@ -48,7 +48,7 @@
                 <a href="<?= ruta('') ?>" class="w-full border-2 border-white rounded-[40px] px-[40px] py-[10px] font-montserrat font-semibold text-[18px] text-white text-center hover:bg-white hover:text-[#553cc8] transition-colors">
                     Home
                 </a>
-                <a href="<?= ruta('acerca-de') ?>" class="w-full border-2 border-white rounded-[40px] px-[40px] py-[10px] font-montserrat font-semibold text-[18px] text-white text-center hover:bg-white hover:text-[#553cc8] transition-colors">
+                <a href="<?= ruta('acerca-de-wow') ?>" class="w-full border-2 border-white rounded-[40px] px-[40px] py-[10px] font-montserrat font-semibold text-[18px] text-white text-center hover:bg-white hover:text-[#553cc8] transition-colors">
                     Acerca de WOW
                 </a>
             </div>
@@ -92,7 +92,7 @@
                 <a href="<?= ruta('') ?>" class="border-2 border-white rounded-[40px] px-[40px] py-[10px] font-montserrat font-semibold text-[18px] text-white whitespace-nowrap hover:bg-white hover:text-[#553cc8] transition-colors">
                     Home
                 </a>
-                <a href="<?= ruta('acerca-de') ?>" class="border-2 border-white rounded-[40px] px-[40px] py-[10px] font-montserrat font-semibold text-[18px] text-white whitespace-nowrap hover:bg-white hover:text-[#553cc8] transition-colors">
+                <a href="<?= ruta('acerca-de-wow') ?>" class="border-2 border-white rounded-[40px] px-[40px] py-[10px] font-montserrat font-semibold text-[18px] text-white whitespace-nowrap hover:bg-white hover:text-[#553cc8] transition-colors">
                     Acerca de WOW
                 </a>
             </div>

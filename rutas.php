@@ -26,7 +26,7 @@ function inicializarRutas() {
         // Rutas del navbar
         crearRuta('diplomado', 'Controlador_Web', 'listaDiplomados');
         crearRuta('tienda', 'Controlador_Web', 'tienda');
-        crearRuta('acerca-de', 'Controlador_Web', 'acercaDe');
+        crearRuta('acerca-de-wow', 'Controlador_Web', 'acercaDe');
         crearRuta('webinars', 'Controlador_Web', 'webinars');
         crearRuta('blog', 'Controlador_Web', 'blog');
         

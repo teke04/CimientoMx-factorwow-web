@@ -94,7 +94,7 @@ class Controlador_Web extends Controlador {
     }
 
     public function acercaDe() {
-        $this->mostrar('web/acerca-de',[
+        $this->mostrar('web/acerca-de-wow',[
         ]);
     }
 

@@ -32,7 +32,7 @@
                 <a href="<?= ruta('tienda') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Tienda
                 </a>
-                <a href="<?= ruta('acerca-de') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
+                <a href="<?= ruta('acerca-de-wow') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                     Acerca de WOW!
                 </a>
             </div>
@@ -53,9 +53,9 @@
 
         <!-- Sección de Contacto -->
         <div class="flex flex-col gap-4">
-            <h3 class="font-montserrat font-medium text-white text-sm uppercase">
+            <a href="<?= ruta('contacto') ?>" class="font-montserrat font-medium text-white text-sm uppercase hover:text-[#FF3D81] transition-colors">
                 Contacto
-            </h3>
+            </a>
             
             <!-- Social Media Icons -->
             <div class="flex gap-4 items-center">
@@ -110,7 +110,7 @@
                 446 147 7123
             </p>
             <p class="font-montserrat font-normal text-white text-xs max-w-xs">
-                Dirección: Jurica Acueducto, 76230 Juriquilla, Qro.
+                Dirección: Fracc. Punta Juriquilla, Blvd. Jurica la Campana 1034, 76230 Juriquilla, Qro.
             </p>
         </div>
 
