@@ -147,7 +147,7 @@ $_diplomados_nav = db()->ejecutarConsulta(
 <div class="xl:hidden fixed top-0 left-0 w-screen h-16 bg-white z-50 flex items-center justify-between px-4 border-b border-gray-100">
     <!-- Logo (left) -->
     <a href="<?= ruta('') ?>" class="inline-block hover:text-[#FF3D81] transition-colors">
-        <img src="<?=importAsset('logo.svg')?>" alt="WOW EXPERIENCE" class="h-10">
+        <img src="<?=importAsset('logo.svg')?>" alt="WOW EXPERIENCE" class="h-10 max-w-[100px]">
     </a>
     
     <!-- Hamburger Button (right) -->

@@ -7,12 +7,6 @@ $menuItems = [
         'icono' => '<svg class="size-5 flex-shrink-0" fill="currentColor" viewBox="0 0 325.498 325.498" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"><path d="M104.998,289.047c0,8.25-6.75,15-15,15h-62c-8.25,0-15-6.75-15-15v-68c0-8.25,6.75-15,15-15h62c8.25,0,15,6.75,15,15V289.047z"/><path d="M215.248,289.047c0,8.25-6.75,15-15,15h-62c-8.25,0-15-6.75-15-15v-104c0-8.25,6.75-15,15-15h62c8.25,0,15,6.75,15,15V289.047z"/><path d="M325.498,289.047c0,8.25-6.75,15-15,15h-62c-8.25,0-15-6.75-15-15v-144c0-8.25,6.75-15,15-15h62c8.25,0,15,6.75,15,15V289.047z"/><path d="M312.522,21.731l-67.375,16.392c-5.346,1.294-6.537,5.535-2.648,9.424l14.377,14.041c1.207,1.376-0.225,3.206-1.361,3.981c-9.053,6.18-23.42,15.248-43.279,25.609c-108.115,56.407-197.238,52.947-198.578,52.886c-7.154-0.363-13.271,5.148-13.641,12.314c-0.369,7.17,5.143,13.283,12.313,13.652c0.527,0.027,2.67,0.124,6.273,0.124c23.107,0,106.111-3.987,205.66-55.924c23.555-12.289,39.881-22.888,49.414-29.598c1.348-0.949,3.697-2.585,5.865-0.378l15.725,15.724c3.889,3.889,8.109,2.692,9.381-2.659l15.285-68.211C321.203,23.756,317.867,20.437,312.522,21.731z"/></svg>',
     ],
     [
-        'id'    => 'landings',
-        'label' => 'Landings',
-        'ruta'  => 'admin/landings',
-        'icono' => '<svg class="size-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="15.82" y1="10.09" x2="15.82" y2="16.77" stroke="currentColor" stroke-width="1.91" stroke-linecap="round"/><line x1="12" y1="12" x2="12" y2="16.77" stroke="currentColor" stroke-width="1.91" stroke-linecap="round"/><line x1="8.18" y1="13.91" x2="8.18" y2="16.77" stroke="currentColor" stroke-width="1.91" stroke-linecap="round"/><polyline points="15.82 2.46 20.59 2.46 20.59 22.5 3.41 22.5 3.41 2.46 8.18 2.46" stroke="currentColor" stroke-width="1.91" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M15.82,1.5V3.41a1.92,1.92,0,0,1-1.91,1.91H10.09A1.92,1.92,0,0,1,8.18,3.41V1.5Z" stroke="currentColor" stroke-width="1.91" fill="none"/></svg>',
-    ],
-    [
         'id'    => 'leads',
         'label' => 'Leads',
         'ruta'  => 'admin/leads',

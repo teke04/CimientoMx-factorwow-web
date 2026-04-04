@@ -7,24 +7,21 @@ class Controlador_Resultados extends Controlador_Admin_Base {
 
         $sql = "
             SELECT 
-                landings.keyword AS landing,
-                COUNT(prospectos.id) AS total_leads
-            FROM 
-                landings
-            LEFT JOIN 
-                prospectos ON landings.id = prospectos.landing_id
-            GROUP BY 
-                landings.id
-            ORDER BY 
-                total_leads DESC
-            LIMIT 5;
+                (SELECT COUNT(*) FROM prospectos)                          AS total_leads,
+                (SELECT COUNT(*) FROM videos)                             AS total_videos,
+                (SELECT COUNT(*) FROM productos   WHERE activo = 1)       AS total_productos,
+                (SELECT COUNT(*) FROM pedidos)                            AS total_pedidos,
+                (SELECT COUNT(*) FROM articulos_blog WHERE activo = 1)    AS total_articulos,
+                (SELECT COUNT(*) FROM webinars    WHERE activo = 1)       AS total_webinars,
+                (SELECT COUNT(*) FROM diplomados  WHERE activo = 1)       AS total_diplomados
         ";
 
-        $landings = db()->ejecutarConsulta($sql, []);
+        $resultado = db()->ejecutarConsulta($sql, []);
+        $stats = $resultado[0] ?? [];
 
         $this->mostrar('admin/resultados',[
             'usuario' => $_SESSION['usuario'],
-            'landings' => $landings,
+            'stats'   => $stats,
         ]);
     }
 
