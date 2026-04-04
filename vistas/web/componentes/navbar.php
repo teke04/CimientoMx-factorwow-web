@@ -163,7 +163,7 @@ $_diplomados_nav = db()->ejecutarConsulta(
     <!-- Logo centrado en header -->
     <div class="flex items-center justify-center pt-6 pb-8">
         <a href="<?= ruta('') ?>" class="inline-block hover:text-[#FF3D81] transition-colors">
-            <img src="<?=importAsset('logo.svg')?>" alt="WOW EXPERIENCE" class="h-12">
+            <img src="<?=importAsset('logo.svg')?>" alt="WOW EXPERIENCE" class="h-12 max-w-[120px]">
         </a>
     </div>
 
