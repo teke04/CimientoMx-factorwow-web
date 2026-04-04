@@ -17,7 +17,7 @@
 
 
         <!-- PRIMERA SECCION HERO - CARRUSEL -->
-        <section id="seccion1" class="w-screen h-screen relative overflow-hidden bg-gradient-to-r from-[#ff3d81] to-[#553cc8] flex items-center justify-center">
+        <section id="seccion1" class="-mt-20 w-screen h-screen relative overflow-hidden bg-gradient-to-r from-[#ff3d81] to-[#553cc8] flex items-center justify-center">
             
             <!-- Contenedor del carrusel -->
             <div class="hero-carousel relative w-full h-full flex items-center justify-center">
