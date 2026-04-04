@@ -605,9 +605,12 @@
         function irATestimonio(index, animar = true) {
             if (window.innerWidth >= 1024) return;
             testimonioActual = Math.max(0, Math.min(index, TOTAL_TESTIMONIOS - 1));
+            const track = document.getElementById('testimonios-track');
             const slide = document.getElementById('testimonio-slide-' + testimonioActual);
-            if (slide) {
-                slide.scrollIntoView({ behavior: animar ? 'smooth' : 'instant', block: 'nearest', inline: 'center' });
+            if (slide && track) {
+                const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+                const targetScrollLeft = slideCenter - track.offsetWidth / 2;
+                track.scrollTo({ left: targetScrollLeft, behavior: animar ? 'smooth' : 'instant' });
             }
             actualizarDotsTestimonios(testimonioActual);
         }
