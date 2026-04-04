@@ -25,7 +25,7 @@ $descripcion = 'Artículos, consejos y noticias sobre WOW Experience y Factor WO
         <?php $this->componente('navbar'); ?>
 
         <!-- Hero Banner -->
-        <section class="w-screen pt-[80px]" style="background: linear-gradient(90deg, #8160AE 0%, #553CC8 100%);">
+        <section class="w-screen pt-[80px] mt-[-40px]" style="background: linear-gradient(90deg, #8160AE 0%, #553CC8 100%);">
             <div class="w-full max-w-7xl mx-auto px-8 py-16 flex items-center justify-center">
                 <h1 class="font-montserrat font-extrabold text-[48px] text-white tracking-widest uppercase text-center">
                     Blog

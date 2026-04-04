@@ -6,16 +6,16 @@
     <title>Entrar</title>
     <link href="<?=importAsset('tailwind/output.css'); ?>" rel="stylesheet">
 </head>
-<body class="bg-teven-primario flex flex-col items-center justify-center h-screen font-inter">
+<body class="bg-teven-primario flex flex-col items-center justify-center min-h-screen font-inter px-4 py-10">
 
-    <div class="bg-white rounded-md shadow-2xl shadow-black/50 flex flex-row max-w-[800px]">
+    <div class="bg-white rounded-md shadow-2xl shadow-black/50 flex flex-col sm:flex-row w-full max-w-[800px]">
 
-        <div class="w-1/2 h-full flex items-center justify-center p-8">
-            <img src="<?=importAsset('logo.svg')?>" alt="Logo" class="object-fit min-w-[300px]">
+        <div class="sm:w-1/2 w-full flex items-center justify-center p-6 sm:p-8">
+            <img src="<?=importAsset('logo.svg')?>" alt="Logo" class="object-contain w-full max-w-[220px] sm:max-w-[300px]">
         </div>
 
-        <div class="w-1/2 h-full flex flex-col p-8">
-            <h1 class="text-2xl font-bold text-teven-secundario-3">Panel de administrador</h1>
+        <div class="sm:w-1/2 w-full flex flex-col p-6 sm:p-8">
+            <h1 class="text-xl sm:text-2xl font-bold text-teven-secundario-3">Panel de administrador</h1>
 
             <form action="<?=ruta('login')?>" method="post" class="mt-4 flex flex-col w-full gap-y-4 h-full">
 
@@ -55,14 +55,10 @@
 
     </div>
 
-    <!-- Etiqueta de agencia -->
-    <div class="fixed bottom-4 left-4 text-white/70 text-sm font-mono">
-        Diseñado por <?= env('AGENCIA', 'Agencia') ?>
-    </div>
-
-    <!-- Etiqueta de versión -->
-    <div class="fixed bottom-4 right-4 text-white/70 text-sm font-mono">
-        Soren Framework v3.0.0
+    <!-- Etiquetas inferiores -->
+    <div class="fixed bottom-4 left-0 right-0 px-4 flex flex-col items-center gap-1 sm:flex-row sm:justify-between text-white/70 text-xs font-mono">
+        <span>Diseñado por <?= env('AGENCIA', 'Agencia') ?></span>
+        <span>Soren Framework v3.0.0</span>
     </div>
 </body>
 </html>

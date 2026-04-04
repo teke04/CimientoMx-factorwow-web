@@ -42,7 +42,7 @@ $descripcion = !empty($articulo['extracto']) ? htmlspecialchars($articulo['extra
         <?php $this->componente('navbar'); ?>
 
         <!-- ── Hero ─────────────────────────────────────────────── -->
-        <section class="relative w-full h-[600px] overflow-hidden bg-[#553cc8]">
+        <section class="relative w-full mt-[-30px] h-[600px] overflow-hidden bg-[#553cc8]">
 
             <!-- Back button -->
             <a href="<?= ruta('blog') ?>"

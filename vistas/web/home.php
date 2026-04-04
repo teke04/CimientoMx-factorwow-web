@@ -489,7 +489,7 @@
                     </p>
                     
                     <!-- Botón -->
-                    <a href="#" class="border-2 border-[#ff3d81] px-10 py-2.5 rounded-full font-montserrat font-semibold text-[18px] text-[#ff3d81] hover:bg-[#ff3d81] hover:text-white transition-all duration-300 inline-block w-fit">
+                    <a href="<?=ruta('contacto')?>" class="border-2 border-[#ff3d81] px-10 py-2.5 rounded-full font-montserrat font-semibold text-[18px] text-[#ff3d81] hover:bg-[#ff3d81] hover:text-white transition-all duration-300 inline-block w-fit">
                         Quiero saber más
                     </a>
                 </div>
