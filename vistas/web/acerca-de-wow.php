@@ -221,17 +221,38 @@
     <!-- ============================================================
          SECCIÓN 4B — HISTORIA INICIO (blanco, fotos + lista)
          ============================================================ -->
-    <section class="bg-white py-20 lg:py-28">
-        <div class="container mx-auto px-6 lg:px-16">
+    <section class="bg-white py-20 lg:py-28 relative overflow-hidden">
+
+        <!-- Stickers decorativos -->
+        <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-wow-1.svg')?>"
+             alt="" aria-hidden="true"
+             class="absolute -top-8 right-4 lg:right-16 w-32 lg:w-44 pointer-events-none select-none">
+        <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-wow-2.svg')?>"
+             alt="" aria-hidden="true"
+             class="absolute -bottom-8 left-4 lg:left-16 w-32 lg:w-44 pointer-events-none select-none">
+
+        <div class="container mx-auto px-6 lg:px-16 relative z-10">
 
             <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
 
-                <!-- Columna izquierda: dos fotos apiladas -->
+                <!-- Columna izquierda: dos fotos apiladas + stickers -->
                 <div class="lg:w-5/12 flex flex-col gap-6 relative">
-                    <img src="<?=importAsset('imagenes/acerca-de-wow/img-historia-1.png')?>"
+
+                    <!-- sticker-1 — esquina superior derecha sobre historia-2 -->
+                    <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-1-img-historia-2.svg')?>"
+                         alt="" aria-hidden="true"
+                         class="absolute -top-8 -right-8 w-24 lg:w-32 pointer-events-none select-none z-10">
+
+                    <img src="<?=importAsset('imagenes/acerca-de-wow/img-historia-2.png')?>"
                          alt="Historia WOW! Experience — odontología"
                          class="w-full rounded-2xl object-cover drop-shadow-lg">
-                    <img src="<?=importAsset('imagenes/acerca-de-wow/img-historia-2.png')?>"
+
+                    <!-- sticker-2 — esquina inferior izquierda sobre historia-3 -->
+                    <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-2-img-historia-2.svg')?>"
+                         alt="" aria-hidden="true"
+                         class="absolute -bottom-8 -left-8 w-24 lg:w-32 pointer-events-none select-none z-10">
+
+                    <img src="<?=importAsset('imagenes/acerca-de-wow/img-historia-3.png')?>"
                          alt="Equipo WOW! Experience"
                          class="w-4/5 self-end rounded-2xl object-cover drop-shadow-lg">
                 </div>
@@ -281,152 +302,8 @@
     </section>
 
 
-    <!-- ============================================================
-         SECCIÓN 5 — EQUIPO (img-historia-2)
-         ============================================================ -->
-    <section class="bg-[#e6f0f0] py-20 lg:py-28 relative overflow-hidden">
-
-        <div class="container mx-auto px-6 lg:px-16 flex justify-center">
-            <div class="relative inline-block">
-                <img src="<?=importAsset('imagenes/acerca-de-wow/img-historia-2.png')?>"
-                     alt="Equipo WOW! Experience"
-                     class="w-full max-w-sm lg:max-w-2xl rounded-3xl drop-shadow-xl">
-                <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-1-img-historia-2.svg')?>"
-                     alt="" aria-hidden="true"
-                     class="absolute -top-8 -right-8 w-20 lg:w-24 pointer-events-none select-none">
-                <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-2-img-historia-2.svg')?>"
-                     alt="" aria-hidden="true"
-                     class="absolute -bottom-8 -left-8 w-20 lg:w-24 pointer-events-none select-none">
-            </div>
-        </div>
-
-    </section>
 
 
-    <!-- ============================================================
-         SECCIÓN 6 — EL PATIENT JOURNEY DE WOW!
-         ============================================================ -->
-    <section class="bg-gradient-to-r from-[#ff3d81] to-[#ff8a8a] py-20 lg:py-28 relative overflow-hidden">
-
-        <!-- Stickers decorativos -->
-        <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-patienr-journey-1.svg')?>"
-             alt="" aria-hidden="true"
-             class="absolute left-4 top-12 w-24 lg:w-32 opacity-80 pointer-events-none select-none">
-        <img src="<?=importAsset('imagenes/acerca-de-wow/sticker-patienr-journey-2.svg')?>"
-             alt="" aria-hidden="true"
-             class="absolute right-4 bottom-12 w-24 lg:w-32 opacity-80 pointer-events-none select-none">
-
-        <div class="container mx-auto px-6 lg:px-16 relative z-10">
-
-            <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
-
-                <!-- Columna texto principal -->
-                <div class="lg:w-1/2 text-white">
-                    <h2 class="font-montserrat font-bold text-3xl lg:text-4xl uppercase leading-snug mb-8 text-center lg:text-left">
-                        El <span class="text-[#553cc8]">Patient Journey</span><br>de WOW! Experience
-                    </h2>
-                    <div class="font-montserrat font-normal text-base lg:text-lg leading-relaxed space-y-4 text-white/90 max-w-xl">
-                        <p>
-                            El viaje del paciente es el recorrido completo que una persona hace para llegar a tu marca dental, abarcando antes, durante y después de su consulta. Es decir, cada punto de contacto que tiene con tu consultorio o clínica, desde la primera vez que escucha hablar de ti hasta el seguimiento post-consulta y su fidelización.
-                        </p>
-                        <p>
-                            Este viaje se puede mapear, lo que permite visualizar cada etapa y detectar tanto puntos de dolor como puntos de oportunidad (momentos clave en los que podemos sorprender y generar confianza).
-                        </p>
-                    </div>
-                    <p class="font-montserrat font-bold text-lg lg:text-xl text-white uppercase mt-8 mb-4 text-center lg:text-left">
-                        Ejemplo en odontología:
-                    </p>
-                </div>
-
-                <!-- Columna etapas -->
-                <div class="lg:w-1/2 flex flex-col gap-5 w-full">
-
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-                        <h3 class="font-montserrat font-bold text-white text-lg mb-2">Antes de la consulta</h3>
-                        <p class="font-montserrat text-white/90 text-sm leading-relaxed">
-                            ¿Cómo te encuentra el paciente? Redes sociales, página web, recomendaciones, facilidad para agendar cita. ¿Recibe información clara y una bienvenida amigable?
-                        </p>
-                    </div>
-
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-                        <h3 class="font-montserrat font-bold text-white text-lg mb-2">Durante la consulta</h3>
-                        <p class="font-montserrat text-white/90 text-sm leading-relaxed">
-                            Desde su llegada a la recepción, la atención del personal, el ambiente del consultorio, el trato del doctor y el proceso del tratamiento. ¿Se siente cómodo y en confianza?
-                        </p>
-                    </div>
-
-                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-                        <h3 class="font-montserrat font-bold text-white text-lg mb-2">Después de la consulta</h3>
-                        <p class="font-montserrat text-white/90 text-sm leading-relaxed">
-                            Seguimiento post-tratamiento, recordatorios de próximas citas, comunicación con el paciente, fidelización. ¿Recibe un servicio que lo haga volver y recomendarte?
-                        </p>
-                    </div>
-
-                    <p class="font-montserrat text-white/80 text-sm leading-relaxed text-center italic px-2">
-                        Cuando entiendes el viaje del paciente, puedes mejorar su experiencia en cada etapa, logrando que su paso por tu consultorio sea no solo satisfactorio, sino <strong class="text-white not-italic">WOW</strong>.
-                    </p>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECCIÓN 7 — DRA. ALE MARTÍNEZ
-         ============================================================ -->
-    <section class="bg-[#e6f0f0] py-20 lg:py-28 relative overflow-hidden">
-
-        <!-- Deco fondo -->
-        <img src="<?=importAsset('imagenes/acerca-de-wow/deco-seccion-dra-ale.svg')?>"
-             alt="" aria-hidden="true"
-             class="absolute right-0 top-1/2 -translate-y-1/2 w-72 lg:w-96 opacity-20 pointer-events-none select-none">
-
-        <div class="container mx-auto px-6 lg:px-16 relative z-10 flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
-
-            <!-- Foto Dra. Ale -->
-            <div class="lg:w-5/12 flex justify-center">
-                <div class="relative">
-                    <img src="<?=importAsset('imagenes/acerca-de-wow/img-seccion-dr-ale.png')?>"
-                         alt="Dra. Alejandra Martínez"
-                         class="w-full max-w-xs sm:max-w-sm lg:max-w-md object-contain rounded-3xl drop-shadow-xl">
-                    <img src="<?=importAsset('imagenes/acerca-de-wow/deco-sticker-2-img-historia-2.svg')?>"
-                         alt="" aria-hidden="true"
-                         class="absolute -bottom-8 -right-6 w-24 pointer-events-none select-none">
-                </div>
-            </div>
-
-            <!-- Bio -->
-            <div class="lg:w-7/12">
-                <h2 class="font-montserrat font-bold text-3xl lg:text-4xl text-[#553cc8] uppercase mb-6">
-                    Dra. Ale Martínez
-                </h2>
-                <div class="space-y-4 font-montserrat font-normal text-[#4b4b4b] text-base lg:text-lg leading-relaxed">
-                    <p>
-                        Soy una mujer apasionada por la odontopediatría, pero sobre todo, por las personas. Mi vocación es la resolución de problemas con base a las necesidades del paciente, buscando que cada consulta sea una experiencia positiva y significativa.
-                    </p>
-                    <p>
-                        Soy mamá de tres niñas y, aunque mis días están llenos de retos, sigo eligiendo estar en mi consultorio, porque amo lo que hago. No concibo mi profesión sin ejercerla, sin seguir aprendiendo, sin seguir buscando maneras de mejorar la forma en que atendemos a nuestros pacientes.
-                    </p>
-                    <p>
-                        Mi enfoque principal está en la atención a niños, familias neurodivergentes (específicamente autistas) y la odontología estética en bebés. He enfrentado el cáncer de manera personal, lo que me ha dado una perspectiva diferente sobre la empatía y el trato humano en la medicina.
-                    </p>
-                    <p>
-                        He dedicado años a la educación y creación de contenido para ayudar a otros profesionales. Soy la porrista número uno de muchos doctores, porque sé que el sector salud necesita más profesionales empoderados, seguros y dispuestos a transformar la manera en que se brinda atención.
-                    </p>
-                    <p>
-                        <strong class="font-bold text-[#553cc8]">WOW! Experience no es solo una metodología, es una nueva forma de hacer salud.</strong>
-                    </p>
-                </div>
-                <a href="<?=ruta('contacto')?>"
-                   class="inline-block mt-8 bg-[#ff3d81] text-white font-montserrat font-bold px-8 py-3 rounded-full hover:opacity-90 transition-all text-base">
-                    Contacta a Dra. Ale
-                </a>
-            </div>
-
-        </div>
-    </section>
 
 
 </main>
